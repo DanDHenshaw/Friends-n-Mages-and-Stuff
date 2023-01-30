@@ -4,7 +4,7 @@ Project can be downloaded from https://github.com/DanDHenshaw/Project1
 -----------------------------------------------------------------------
 What is `Project 1`?
 ----------------------------
-
+All Specification, Technical Design, Test Plan, GIT Commit Log, and Schedule is located here: https://tinyurl.com/project1-design-doc
 
 How to setup?
 ----------------------------
