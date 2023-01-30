@@ -18,3 +18,5 @@ How to setup?
 Author & Contributor List
 -------------------------
 **Daniel Henshaw**
+- Assets:
+  - GameDev Market RPG - www.gamedevmarket.net
