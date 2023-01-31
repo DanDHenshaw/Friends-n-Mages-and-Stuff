@@ -22,10 +22,19 @@ namespace Insignia
 		// Reference to GameData.
 		GameDataRef _data;
 
-		// Clock for the Splash Screen.
-		sf::Clock _clock;
-
 		// Splash screen background image.
 		sf::Sprite _background;
+
+		// Play button sprite.
+		sf::Sprite _playButton;
+
+		// Leaderboard button sprite
+		sf::Sprite _leaderboardButton;
+
+		// Close button sprite.
+		sf::Sprite _exitButton;
+
+		// Game title sprite.
+		sf::Sprite _title;
 	};
 }

@@ -11,9 +11,29 @@ namespace Insignia
 
 	void MenuState::Init()
 	{
-		this->_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
+		/* UNCOMMENT WHEN ART IS ADDED
+			// Loads background texture.
+			this->_data->assets.LoadTexture("Menu State Background", MAIN_MENU_SCENE_BACKGROUND_FILEPATH);
+			// Loads play button texture.
+			this->_data->assets.LoadTexture("Menu State Play Button", MAIN_MENU_SCENE_PLAY_BUTTON_FILEPATH);
+			// Loads leaderboard button texture.
+			this->_data->assets.LoadTexture("Menu State Leaderboard Button", MAIN_MENU_SCENE_LEADERBOARD_BUTTON_FILEPATH);
+			// Loads exit button texture.
+			this->_data->assets.LoadTexture("Menu State Exit Button", MAIN_MENU_SCENE_EXIT_BUTTON_FILEPATH);
+			// Loads title texture.
+			this->_data->assets.LoadTexture("Menu State Title", MAIN_MENU_SCENE_TITLE_FILEPATH);
 
-		_background.setTexture(this->_data->assets.GetTexture("Splash State Background"));
+			// Sets background texture.
+			_background.setTexture(this->_data->assets.GetTexture("Menu State Background"));
+			// Sets play button texture.
+			_playButton.setTexture(this->_data->assets.GetTexture("Menu State Play Button"));
+			// Sets leaderboard button texture.
+			_leaderboardButton.setTexture(this->_data->assets.GetTexture("Menu State Leaderboard Button"));
+			// Sets exit button texture.
+			_exitButton.setTexture(this->_data->assets.GetTexture("Menu State Exit Button"));
+			// Sets title texture.
+			_title.setTexture(this->_data->assets.GetTexture("Menu State Title"));
+		*/
 	}
 
 	void MenuState::HandleInput()
@@ -22,11 +42,14 @@ namespace Insignia
 
 		while (this->_data->window.pollEvent(event))
 		{
-			switch (event.type)
+			if(sf::Event::Closed == event.type)
 			{
-			case sf::Event::Closed:
 				this->_data->window.close();
-				break;
+			}
+
+			if (this->_data->input.IsSpriteClicked(this->_playButton, sf::Mouse::Left, this->_data->window))
+			{
+				std::cout << "Go to game";
 			}
 		}
 	}
@@ -40,6 +63,10 @@ namespace Insignia
 	{
 		this->_data->window.clear(sf::Color::Red);
 		this->_data->window.draw(this->_background);
+		this->_data->window.draw(this->_playButton);
+		this->_data->window.draw(this->_leaderboardButton);
+		this->_data->window.draw(this->_exitButton);
+		this->_data->window.draw(this->_title);
 		this->_data->window.display();
 	}
 

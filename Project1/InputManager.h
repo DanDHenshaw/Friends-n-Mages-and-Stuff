@@ -16,7 +16,7 @@ namespace Insignia
 			- button is the mouse button the user needs to click.
 			- window is the RenderWindow the user needs to click on.
 		 */
-		bool IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow window);
+		bool IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window);
 
 		/*
 		 Returns the users mouse position.

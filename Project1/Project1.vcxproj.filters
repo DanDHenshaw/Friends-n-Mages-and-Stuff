@@ -28,9 +28,6 @@
     <Filter Include="Source Files\States">
       <UniqueIdentifier>{260b4a6d-5114-45dd-ab41-78e570d27911}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\States\SplashScreen">
-      <UniqueIdentifier>{b261fb86-88e9-4eaf-ab3c-3d01801cf3cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Managers">
       <UniqueIdentifier>{e4896ea3-94db-400d-9017-36760a2d6611}</UniqueIdentifier>
     </Filter>
@@ -41,7 +38,10 @@
       <UniqueIdentifier>{42ce2a2a-97eb-400e-bad1-1691dc144951}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\States\MenuScreen">
-      <UniqueIdentifier>{3e0a0967-0559-49d0-9df0-a5387881bb6a}</UniqueIdentifier>
+      <UniqueIdentifier>{2256b66e-d710-4607-8ee7-ab35bc4e89ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States\SplashScreen">
+      <UniqueIdentifier>{ce98c4f6-d989-46b8-8056-97231de89987}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -50,9 +50,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\sqlite\sqlite3.c">
       <Filter>Source Files\Important</Filter>
-    </ClCompile>
-    <ClCompile Include="SplashState.cpp">
-      <Filter>Source Files\States\SplashScreen</Filter>
     </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files\Managers</Filter>
@@ -68,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="MenuState.cpp">
       <Filter>Source Files\States\MenuScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="SplashState.cpp">
+      <Filter>Source Files\States\SplashScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

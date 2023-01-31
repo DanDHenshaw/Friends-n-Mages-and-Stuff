@@ -2,6 +2,8 @@
 #include <sstream>
 #include <iostream>
 
+#include "MenuState.h"
+
 namespace Insignia
 {
 	SplashState::SplashState(GameDataRef data) : _data(data)
@@ -9,36 +11,41 @@ namespace Insignia
 
 	}
 
+	// Initializes the state.
 	void SplashState::Init()
 	{
+		// Loads background texture.
 		this->_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
 
+		// Sets background texture.
 		_background.setTexture(this->_data->assets.GetTexture("Splash State Background"));
 	}
 
+	// Handles events.
 	void SplashState::HandleInput()
 	{
 		sf::Event event;
 
 		while (this->_data->window.pollEvent(event))
 		{
-			switch (event.type)
+			if (sf::Event::Closed == event.type)
 			{
-			case sf::Event::Closed:
 				this->_data->window.close();
-				break;
 			}
 		}
 	}
 
+	// Updates splash screen after SPLASH_STATE_SHOW_TIME.
 	void SplashState::Update(float delta)
 	{
 		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
-			std::cout << "Go to main menu" << std::endl;
+			// Swap from SplashState to MenuState.
+			this->_data->machine.AddState(StateRef(new MenuState(_data)), true);
 		}
 	}
 
+	// Draws splash screen.
 	void SplashState::Draw(float delta)
 	{
 		this->_data->window.clear(sf::Color::Red);
