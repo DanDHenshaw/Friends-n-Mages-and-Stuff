@@ -19,4 +19,5 @@ Author & Contributor List
 -------------------------
 **Daniel Henshaw**
 - **Assets:**
-  - GameDev Market RPG - www.gamedevmarket.net
+  - Cartoon RPG Characters 1 - https://www.gamedevmarket.net/asset/cartoon-rpg-characters-1-2067/
+  - Fantasy RPG Tileset Pack - https://www.gamedevmarket.net/asset/fantasy-rpg-tileset-pack-3541/
