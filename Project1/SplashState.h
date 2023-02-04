@@ -12,11 +12,11 @@ namespace Insignia
 	public:
 		SplashState(GameDataRef data);
 
-		void Init();
+		void Init() override;
 
-		void HandleInput();
-		void Update(float delta);
-		void Draw(float delta);
+		void HandleInput() override;
+		void Update(float delta) override;
+		void Draw(float delta) override;
 
 	private:
 		// Reference to GameData.

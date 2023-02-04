@@ -43,6 +43,24 @@
     <Filter Include="Source Files\States\SplashScreen">
       <UniqueIdentifier>{ce98c4f6-d989-46b8-8056-97231de89987}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects">
+      <UniqueIdentifier>{5c78a750-9123-4534-ad7b-0af0b7260b79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{f33c3da1-f9d8-4b00-b145-1d64f6ce20e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Player">
+      <UniqueIdentifier>{ebbdfcfc-5328-4ec2-8e81-64fb04c187c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Player">
+      <UniqueIdentifier>{b4368416-046b-4e56-9122-6894eb240fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\States\GameScreen">
+      <UniqueIdentifier>{6bdb573c-5f20-4cb8-801c-34daf0e411ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States\GameScreen">
+      <UniqueIdentifier>{68e517f7-7dc7-40f3-bb24-5165d468913f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="SplashState.cpp">
       <Filter>Source Files\States\SplashScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\States\GameScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +121,15 @@
     </ClInclude>
     <ClInclude Include="MenuState.h">
       <Filter>Header Files\States\MenuScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\GameObjects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\States\GameScreen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

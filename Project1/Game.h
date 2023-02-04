@@ -2,11 +2,14 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 #include <SFML/Graphics.hpp>
 #include "StateMachine.h"
 #include "AssetManager.h"
 #include "InputManager.h"
 #include "DEFINITIONS.h"
+
+using namespace std;
 
 namespace Insignia
 {

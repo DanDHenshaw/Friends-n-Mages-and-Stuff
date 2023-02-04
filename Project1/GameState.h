@@ -4,13 +4,16 @@
 #include "State.h"
 #include "Game.h"
 
+#include "GameObject.h"
+#include "Player.h"
+
 namespace Insignia
 {
 	// Inherits the State class from 'State.h'
-	class MenuState : public State
+	class GameState : public State
 	{
 	public:
-		MenuState(GameDataRef data);
+		GameState(GameDataRef data);
 
 		void Init() override;
 
@@ -22,19 +25,7 @@ namespace Insignia
 		// Reference to GameData.
 		GameDataRef _data;
 
-		// Splash screen background image.
-		sf::Sprite _background;
-
-		// Play button sprite.
-		sf::Sprite _playButton;
-
-		// Leaderboard button sprite
-		sf::Sprite _leaderboardButton;
-
-		// Close button sprite.
-		sf::Sprite _exitButton;
-
-		// Game title sprite.
-		sf::Sprite _title;
+		// Vector of all gameobjects
+		vector<GameObject*> entities;
 	};
 }

@@ -2,6 +2,8 @@
 #include <sstream>
 #include <iostream>
 
+#include "GameState.h"
+
 namespace Insignia
 {
 	MenuState::MenuState(GameDataRef data) : _data(data)
@@ -56,7 +58,8 @@ namespace Insignia
 
 	void MenuState::Update(float delta)
 	{
-		
+		// Testing
+		this->_data->machine.AddState(StateRef(new GameState(_data)), true);
 	}
 
 	void MenuState::Draw(float delta)
