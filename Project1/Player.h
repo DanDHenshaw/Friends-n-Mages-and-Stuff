@@ -33,5 +33,10 @@ namespace Insignia
 		sf::Clock _clock;
 
 		int idlePos = 0;
+		int walkingPos = 0;
+
+		Vector2f Movement(Keyboard::Key Up, Keyboard::Key Down, Keyboard::Key Left, Keyboard::Key Right);
+		float _moveSpeed = 1.f;
+		bool isWalking = false;
 	};
 }

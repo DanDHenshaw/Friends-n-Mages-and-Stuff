@@ -6,7 +6,7 @@ namespace Insignia
 {
 	GameState::GameState(GameDataRef data) : _data(data)
 	{
-
+		
 	}
 
 	void GameState::Init()
@@ -38,6 +38,7 @@ namespace Insignia
 	{
 		for (auto& entity : this->entities)
 		{
+			entity->HandleInput();
 			entity->Update(delta);
 		}
 	}
