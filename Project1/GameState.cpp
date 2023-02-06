@@ -11,9 +11,13 @@ namespace Insignia
 
 	void GameState::Init()
 	{
-		// Creates and Adds player pointer to a vector of entities
-		Player* player = new Player(_data);
-		this->entities.push_back(player);
+		// Creates and Adds player1 pointer to a vector of entities
+		Player* player1 = new Player(_data, GameObject::PLAYER1);
+		this->entities.push_back(player1);
+
+		// Creates and Adds player2 pointer to a vector of entities
+		Player* player2 = new Player(_data, GameObject::PLAYER2);
+		this->entities.push_back(player2);
 
 		for (auto & entity : this->entities)
 		{

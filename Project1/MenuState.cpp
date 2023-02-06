@@ -51,7 +51,17 @@ namespace Insignia
 
 			if (this->_data->input.IsSpriteClicked(this->_playButton, sf::Mouse::Left, this->_data->window))
 			{
-				std::cout << "Go to game";
+				this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+			}
+
+			if (this->_data->input.IsSpriteClicked(this->_leaderboardButton, sf::Mouse::Left, this->_data->window))
+			{
+				//this->_data->machine.AddState(StateRef(new LeaderboardState(_data)), true);
+			}
+
+			if (this->_data->input.IsSpriteClicked(this->_exitButton, sf::Mouse::Left, this->_data->window))
+			{
+				this->_data->window.close();
 			}
 		}
 	}

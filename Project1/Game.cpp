@@ -1,6 +1,5 @@
 #include "Game.h"
 #include "SplashState.h"
-#include "MenuState.h"
 
 namespace Insignia
 {

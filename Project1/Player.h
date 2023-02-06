@@ -10,7 +10,7 @@ namespace Insignia
 	class Player : public GameObject
 	{
 	public:
-		Player(GameDataRef data);
+		Player(GameDataRef data, ObjectType type);
 
 		void Init() override;
 
@@ -23,11 +23,7 @@ namespace Insignia
 		GameDataRef _data;
 
 		// Sprite for mage 1
-		sf::Sprite _player1;
-		// Sprite for mage 2
-		sf::Sprite _player2;
-		// Sprite for magic kill beam
-		sf::Sprite _magicBeam;
+		sf::Sprite _player;
 
 		// Clock for the Player.
 		sf::Clock _clock;
@@ -35,8 +31,7 @@ namespace Insignia
 		int idlePos = 0;
 		int walkingPos = 0;
 
-		Vector2f Movement(Keyboard::Key Up, Keyboard::Key Down, Keyboard::Key Left, Keyboard::Key Right);
-		float _moveSpeed = 1.f;
+		float _moveSpeed = MOVEMENT_SPEED;
 		bool isWalking = false;
 	};
 }

@@ -6,8 +6,8 @@ namespace Insignia
 	{
 	public:
 		// Type
-		enum ObjectType { PLAYER, ENEMY };
-		ObjectType type;
+		enum ObjectType { PLAYER1, PLAYER2, ENEMY };
+		ObjectType _type;
 
 		/*
 		Initialises the state.

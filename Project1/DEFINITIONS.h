@@ -86,5 +86,8 @@ const vector<IntRect> PLAYER2_WALK
 
 #define PLAYER_IDLE_ANIM_TIME 0.25f
 #define PLAYER_WALK_ANIM_TIME 0.1f
+
+#define PLAYER_SIZE 0.5f
+#define MOVEMENT_SPEED 1.5f
 #pragma endregion
 #pragma endregion

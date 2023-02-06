@@ -2,44 +2,57 @@
 
 namespace Insignia
 {
-	Player::Player(GameDataRef data) : _data(data)
+	Player::Player(GameDataRef data, ObjectType type) : _data(data)
 	{
-
+		_type = type;
 	}
 
 	void Player::Init()
 	{
-		type = PLAYER;
+		switch (_type)
+		{
+		case GameObject::PLAYER1:
+			this->_data->assets.LoadTexture("Player1", PLAYER1_FILEPATH);
 
-		// Loads player1 texture.
-		this->_data->assets.LoadTexture("Player1", PLAYER1_FILEPATH);
-		// Loads player2 texture.
-		this->_data->assets.LoadTexture("Player2", PLAYER2_FILEPATH);
+			_player.setTexture(this->_data->assets.GetTexture("Player1"));
 
-		// Sets player1 texture.
-		_player1.setTexture(this->_data->assets.GetTexture("Player1"));
-		// Sets player2 texture.
-		_player2.setTexture(this->_data->assets.GetTexture("Player2"));
+			_player.setScale(PLAYER_SIZE, PLAYER_SIZE);
 
-		// Sets player1 origin to centre.
-		_player1.setOrigin(_player1.getScale().x / 2, _player1.getScale().y / 2);
-		// Sets player2 origin to centre.
-		_player2.setOrigin(_player2.getScale().x / 2, _player2.getScale().y / 2);
+			_player.setOrigin(_player.getScale().x / 2, _player.getScale().y / 2);
 
+			_player.setPosition(100, SCREEN_HEIGHT / 4);
+			break;
+		case GameObject::PLAYER2:
+			this->_data->assets.LoadTexture("Player2", PLAYER2_FILEPATH);
 
-		// Positions player1 into the centre of the screen.
-		_player1.setPosition(100, SCREEN_HEIGHT / 4);
-		// Positions player2 into the centre of the screen.
-		_player2.setPosition(SCREEN_WIDTH - 100, SCREEN_HEIGHT / 4);
+			_player.setTexture(this->_data->assets.GetTexture("Player2"));
 
-		// Flips player2 to face to opposite direction.
-		_player2.setScale(_player2.getScale().x * -1, _player2.getScale().y);
+			_player.setScale(PLAYER_SIZE, PLAYER_SIZE);
+
+			_player.setOrigin(_player.getScale().x / 2, _player.getScale().y / 2);
+		
+			_player.setScale(_player.getScale().x * -1, _player.getScale().y);
+
+			_player.setPosition(SCREEN_WIDTH - 100, SCREEN_HEIGHT / 4);
+			break;
+		default:
+			break;
+		}
 	}
 
 	void Player::HandleInput()
 	{
-		_player1.move(Movement(Keyboard::Key::W, Keyboard::S, Keyboard::A, Keyboard::D));
-		_player2.move(Movement(Keyboard::Up, Keyboard::Down, Keyboard::Left, Keyboard::Right));
+		switch (_type)
+		{
+		case GameObject::PLAYER1:
+			_player.move(this->_data->input.Movement(Keyboard::Key::W, Keyboard::S, Keyboard::A, Keyboard::D, _moveSpeed, isWalking));
+			break;
+		case GameObject::PLAYER2:
+			_player.move(this->_data->input.Movement(Keyboard::Key::Up, Keyboard::Down, Keyboard::Left, Keyboard::Right, _moveSpeed, isWalking));
+			break;
+		default:
+			break;
+		}
 	}
 
 	void Player::Update(float delta)
@@ -75,47 +88,36 @@ namespace Insignia
 
 		if (isWalking)
 		{
-			_player1.setTextureRect(PLAYER1_WALK[this->walkingPos]);
-			_player2.setTextureRect(PLAYER2_WALK[this->walkingPos]);
+			switch (_type)
+			{
+			case GameObject::PLAYER1:
+				_player.setTextureRect(PLAYER1_WALK[this->walkingPos]);
+				break;
+			case GameObject::PLAYER2:
+				_player.setTextureRect(PLAYER2_WALK[this->walkingPos]);
+				break;
+			default:
+				break;
+			}
 		}
 		else
 		{
-			_player1.setTextureRect(PLAYER1_IDLE[this->idlePos]);
-			_player2.setTextureRect(PLAYER2_IDLE[this->idlePos]);
+			switch (_type)
+			{
+			case GameObject::PLAYER1:
+				_player.setTextureRect(PLAYER1_IDLE[this->idlePos]);
+				break;
+			case GameObject::PLAYER2:
+				_player.setTextureRect(PLAYER2_IDLE[this->idlePos]);
+				break;
+			default:
+				break;
+			}
 		}
 	}
 
 	void Player::Draw(float delta)
 	{
-		this->_data->window.draw(this->_player1);
-		this->_data->window.draw(this->_player2);
+		this->_data->window.draw(this->_player);
 	}
-
-	Vector2f Player::Movement(Keyboard::Key Up, Keyboard::Key Down, Keyboard::Key Left, Keyboard::Key Right)
-	{
-		Vector2f move(0.0f, 0.0f);
-
-		if(Keyboard::isKeyPressed(Up))
-		{
-			move.y = this->_moveSpeed * -1.0f;
-		}
-
-		if (Keyboard::isKeyPressed(Down))
-		{
-			move.y = this->_moveSpeed;
-		}
-
-		if (Keyboard::isKeyPressed(Left))
-		{
-			move.x = this->_moveSpeed * -1.0f;
-		}
-
-		if (Keyboard::isKeyPressed(Right))
-		{
-			move.x = this->_moveSpeed;
-		}
-		
-		return move;
-	}
-
 }
