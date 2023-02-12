@@ -1,13 +1,18 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
+
 namespace Insignia
 {
 	class GameObject
 	{
 	public:
 		// Type
-		enum ObjectType { PLAYER1, PLAYER2, ENEMY };
+		enum ObjectType { PLAYER1, PLAYER2, KILLBEAM, ENEMY };
 		ObjectType _type;
+
+		sf::Vector2f wandPos;
+		sf::Vector2f extraWandPos;
 
 		/*
 		Initialises the state.

@@ -61,6 +61,12 @@
     <Filter Include="Source Files\States\GameScreen">
       <UniqueIdentifier>{68e517f7-7dc7-40f3-bb24-5165d468913f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\Killbeam">
+      <UniqueIdentifier>{16d6325a-96bf-49a5-aee2-c52b2aa987f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Killbeam">
+      <UniqueIdentifier>{14fb9056-520c-4f6b-bd0d-42248810ed5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -92,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Source Files\States\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="Killbeam.cpp">
+      <Filter>Source Files\GameObjects\Killbeam</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>Header Files\States\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="Killbeam.h">
+      <Filter>Header Files\GameObjects\Killbeam</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

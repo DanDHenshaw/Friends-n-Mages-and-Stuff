@@ -38,6 +38,8 @@ namespace Insignia
 		default:
 			break;
 		}
+
+		wandPos = _player.getPosition();
 	}
 
 	void Player::HandleInput()
@@ -114,6 +116,8 @@ namespace Insignia
 				break;
 			}
 		}
+
+		wandPos = _player.getPosition();
 	}
 
 	void Player::Draw(float delta)

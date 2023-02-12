@@ -90,4 +90,8 @@ const vector<IntRect> PLAYER2_WALK
 #define PLAYER_SIZE 0.5f
 #define MOVEMENT_SPEED 1.5f
 #pragma endregion
+
+#pragma region Killbeam
+#define KILLBEAM_FILEPATH "data/res/game/killbeam.png"
+#pragma endregion
 #pragma endregion

@@ -6,7 +6,7 @@ namespace Insignia
 {
 	GameState::GameState(GameDataRef data) : _data(data)
 	{
-		
+
 	}
 
 	void GameState::Init()
@@ -18,6 +18,9 @@ namespace Insignia
 		// Creates and Adds player2 pointer to a vector of entities
 		Player* player2 = new Player(_data, GameObject::PLAYER2);
 		this->entities.push_back(player2);
+
+		Killbeam* killbeam = new Killbeam(_data, GameObject::KILLBEAM);
+		this->entities.push_back(killbeam);
 
 		for (auto & entity : this->entities)
 		{
@@ -44,6 +47,20 @@ namespace Insignia
 		{
 			entity->HandleInput();
 			entity->Update(delta);
+
+			switch (entity->_type)
+			{
+			case entity->PLAYER1:
+				wand1Pos = entity->wandPos;
+				break;
+			case entity->PLAYER2:
+				wand2Pos = entity->wandPos;
+				break;
+			case entity->KILLBEAM:
+				entity->wandPos = wand1Pos;
+				entity->extraWandPos = wand2Pos;
+				break;
+			}
 		}
 	}
 

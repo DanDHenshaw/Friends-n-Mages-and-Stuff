@@ -6,10 +6,10 @@
 namespace Insignia
 {
 	// Inherits the State class from 'GameObject.h'
-	class Player : public GameObject
+	class Killbeam : public GameObject
 	{
 	public:
-		Player(GameDataRef data, ObjectType type);
+		Killbeam(GameDataRef data, ObjectType type);
 
 		void Init() override;
 
@@ -21,16 +21,12 @@ namespace Insignia
 		// Reference to GameData.
 		GameDataRef _data;
 
-		// Sprite for mage 1
-		sf::Sprite _player;
+		// Sprite for killbeam
+		RectangleShape _killbeam;
 
 		// Clock for the Player.
 		sf::Clock _clock;
 
-		int idlePos = 0;
-		int walkingPos = 0;
-
-		float _moveSpeed = MOVEMENT_SPEED;
-		bool isWalking = false;
+		int animPos = 0;
 	};
 }
