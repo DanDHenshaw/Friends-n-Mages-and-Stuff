@@ -27,8 +27,8 @@ namespace Insignia
 	{
 		// Calculates x & y of player
 			// forming a right angle triangle
-		float x = wandPos.x - extraWandPos.x;
-		float y = wandPos.y - extraWandPos.y;
+		float x = extraWandPos.x - wandPos.x;
+		float y = extraWandPos.y - wandPos.y;
 
 		// Pythagoras' Theorem
 			// h - hypotenuse (length of long side of right angle triangle)
@@ -41,9 +41,6 @@ namespace Insignia
 		angle = asin(angle);
 			// Converts rad to deg
 		angle *= (180.0 / 3.141592653589793238463);
-			// Angles was opposite
-				// Flips the degrees
-		angle *= -1;
 		
 		_killbeam.setPosition(wandPos.x, wandPos.y);
 		_killbeam.setSize(Vector2f(h, 5));

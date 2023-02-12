@@ -60,6 +60,8 @@ const vector<IntRect> PLAYER1_WALK
 	{685, 288, 215, 268},
 	{910, 288, 215, 268}
 };
+// Mage 1 Wand Position
+const Vector2f PLAYER1_WAND_OFFSET(185.0f, 134.0f);
 // Mage 2 sprite filepath
 #define PLAYER2_FILEPATH "data/res/game/players/Mage2.png"
 // Mage 2 Idle Anim
@@ -83,6 +85,8 @@ const vector<IntRect> PLAYER2_WALK
 	{654, 288, 205, 268},
 	{869, 288, 205, 268}
 };
+// Mage 2 Wand Position
+const Vector2f PLAYER2_WAND_OFFSET(182.0f, 142.0f);
 
 #define PLAYER_IDLE_ANIM_TIME 0.25f
 #define PLAYER_WALK_ANIM_TIME 0.1f

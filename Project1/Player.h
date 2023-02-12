@@ -27,10 +27,12 @@ namespace Insignia
 		// Clock for the Player.
 		sf::Clock _clock;
 
-		int idlePos = 0;
-		int walkingPos = 0;
+		void Animations();
+		int _idlePos = 0;
+		int _walkingPos = 0;
+		Vector2f _wandOffset;
 
 		float _moveSpeed = MOVEMENT_SPEED;
-		bool isWalking = false;
+		bool _isWalking = false;
 	};
 }
