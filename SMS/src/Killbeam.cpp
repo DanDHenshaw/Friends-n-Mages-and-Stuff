@@ -1,11 +1,11 @@
 #include "Killbeam.h"
 
-#include <iostream>
-#include <math.h>
+#include <cmath>
 
 namespace Insignia
 {
-	Killbeam::Killbeam(GameDataRef data, ObjectType type) : _data(data)
+	Killbeam::Killbeam(GameDataRef data, ObjectType type)
+		: _data(data)
 	{
 		_type = type;
 	}

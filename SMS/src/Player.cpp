@@ -2,7 +2,8 @@
 
 namespace Insignia
 {
-	Player::Player(GameDataRef data, ObjectType type) : _data(data)
+	Player::Player(GameDataRef data, ObjectType type)
+		: _data(data)
 	{
 		_type = type;
 	}

@@ -2,7 +2,8 @@
 
 namespace Insignia
 {
-	Enemy::Enemy(GameDataRef data, ObjectType type) : _data(data)
+	Enemy::Enemy(GameDataRef data, ObjectType type)
+		: _data(data)
 	{
 		_type = type;
 	}

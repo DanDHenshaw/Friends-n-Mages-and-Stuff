@@ -27,7 +27,7 @@ namespace Insignia
 		GameDataRef _data;
 
 		// Vector of all gameobjects
-		vector<GameObject*> entities;
+		vector<std::shared_ptr<GameObject>> entities;
 
 		sf::Vector2f wand1Pos;
 		sf::Vector2f wand2Pos;
