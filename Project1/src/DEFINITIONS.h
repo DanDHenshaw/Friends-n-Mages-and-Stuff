@@ -3,12 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-using namespace sf;
-using namespace std;
-
 #pragma region RENDER WINDOW
 // Game title.
-#define TITLE "TITLE"
+#define TITLE "Friends 'n Mages & Stuff"
 // Game width.
 #define SCREEN_WIDTH 1280
 // Game height
@@ -19,28 +16,28 @@ using namespace std;
 // Splash screen play length.
 #define SPLASH_STATE_SHOW_TIME 3
 // Splash screen background filepath.
-#define SPLASH_SCENE_BACKGROUND_FILEPATH "data/res/splash/background.jpg"
+#define SPLASH_SCENE_BACKGROUND_FILEPATH "res/splash/background.jpg"
 #pragma endregion
 
 #pragma region MENU SCREEN
 // Menu screen background filepath.
-#define MAIN_MENU_SCENE_BACKGROUND_FILEPATH "data/res/menu/background.jpg"
+#define MAIN_MENU_SCENE_BACKGROUND_FILEPATH "res/menu/background.jpg"
 // Menu screen play button filepath.
-#define MAIN_MENU_SCENE_PLAY_BUTTON_FILEPATH "data/res/menu/playButton.png"
+#define MAIN_MENU_SCENE_PLAY_BUTTON_FILEPATH "res/menu/playButton.png"
 // Menu screen leaderboard button filepath.
-#define MAIN_MENU_SCENE_LEADERBOARD_BUTTON_FILEPATH "data/res/menu/leaderboardButton.png"
+#define MAIN_MENU_SCENE_LEADERBOARD_BUTTON_FILEPATH "res/menu/leaderboardButton.png"
 // Menu screen exit button filepath.
-#define MAIN_MENU_SCENE_EXIT_BUTTON_FILEPATH "data/res/menu/exitButton.png"
+#define MAIN_MENU_SCENE_EXIT_BUTTON_FILEPATH "res/menu/exitButton.png"
 // Menu screen title filepath.
-#define MAIN_MENU_SCENE_TITLE_FILEPATH "data/res/menu/title.png"
+#define MAIN_MENU_SCENE_TITLE_FILEPATH "res/menu/title.png"
 #pragma endregion
 
 #pragma region GAME
 #pragma region PLAYERS
 // Mage 1 sprite filepath
-#define PLAYER1_FILEPATH "data/res/game/players/Mage1.png"
+#define PLAYER1_FILEPATH "res/game/players/Mage1.png"
 // Mage 1 Idle Anim
-const vector<IntRect> PLAYER1_IDLE
+const std::vector<sf::IntRect> PLAYER1_IDLE
 {
 	{10, 10, 215, 268},
 	{235, 10, 215, 268},
@@ -52,7 +49,7 @@ const vector<IntRect> PLAYER1_IDLE
 	{1586, 10, 215, 268}
 };
 // Mage 1 Walk Anim
-const vector<IntRect> PLAYER1_WALK
+const std::vector<sf::IntRect> PLAYER1_WALK
 {
 	{10, 288, 215, 268},
 	{235, 288, 215, 268},
@@ -61,11 +58,11 @@ const vector<IntRect> PLAYER1_WALK
 	{910, 288, 215, 268}
 };
 // Mage 1 Wand Position
-const Vector2f PLAYER1_WAND_OFFSET(185.0f, 134.0f);
+const sf::Vector2f PLAYER1_WAND_OFFSET(185.0f, 134.0f);
 // Mage 2 sprite filepath
-#define PLAYER2_FILEPATH "data/res/game/players/Mage2.png"
+#define PLAYER2_FILEPATH "res/game/players/Mage2.png"
 // Mage 2 Idle Anim
-const vector<IntRect> PLAYER2_IDLE
+const std::vector<sf::IntRect> PLAYER2_IDLE
 {
 	{10, 10, 205, 268},
 	{225, 10, 205, 268},
@@ -77,7 +74,7 @@ const vector<IntRect> PLAYER2_IDLE
 	{1512, 10, 205, 268}
 };
 // Mage 2 Walk Anim
-const vector<IntRect> PLAYER2_WALK
+const std::vector<sf::IntRect> PLAYER2_WALK
 {
 	{10, 288, 205, 268},
 	{225, 288, 205, 268},
@@ -86,7 +83,7 @@ const vector<IntRect> PLAYER2_WALK
 	{869, 288, 205, 268}
 };
 // Mage 2 Wand Position
-const Vector2f PLAYER2_WAND_OFFSET(182.0f, 142.0f);
+const sf::Vector2f PLAYER2_WAND_OFFSET(182.0f, 142.0f);
 
 #define PLAYER_IDLE_ANIM_TIME 0.25f
 #define PLAYER_WALK_ANIM_TIME 0.1f
@@ -96,6 +93,26 @@ const Vector2f PLAYER2_WAND_OFFSET(182.0f, 142.0f);
 #pragma endregion
 
 #pragma region Killbeam
-#define KILLBEAM_FILEPATH "data/res/game/killbeam.png"
+#define KILLBEAM_FILEPATH "res/game/killbeam.png"
+
+#define KILLBEAM_SIZE 50
+
+// Killbeam Animation
+const std::vector<sf::IntRect> KILLBEAM_ANIM
+{
+	{45, 0, 422, 132},
+	{45, 127, 422, 132},
+	{45, 255, 422, 132},
+	{45, 382, 422, 132},
+	{45, 511, 422, 132},
+	{45, 639, 422, 132},
+	{45, 765, 422, 132},
+	{45, 894, 422, 132},
+	{45, 1025, 422, 132},
+	{45, 1153, 422, 132},
+	{45, 1281, 422, 132}
+};
+
+#define KILLBEAM_ANIM_TIME 0.1f
 #pragma endregion
 #pragma endregion

@@ -27,6 +27,6 @@ namespace Insignia
 		// Clock for the Player.
 		sf::Clock _clock;
 
-		int animPos = 0;
+		int _animPos = 0;
 	};
 }

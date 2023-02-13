@@ -28,22 +28,22 @@ namespace Insignia
 
 		if (sf::Keyboard::isKeyPressed(Up))
 		{
-			move.y = moveSpeed * -1.0f;
+			move.y += moveSpeed * -1.0f;
 		}
 
 		if (sf::Keyboard::isKeyPressed(Down))
 		{
-			move.y = moveSpeed;
+			move.y += moveSpeed;
 		}
 
 		if (sf::Keyboard::isKeyPressed(Left))
 		{
-			move.x = moveSpeed * -1.0f;
+			move.x += moveSpeed * -1.0f;
 		}
 
 		if (sf::Keyboard::isKeyPressed(Right))
 		{
-			move.x = moveSpeed;
+			move.x += moveSpeed;
 		}
 
 		if (move.x == 0.0f && move.y == 0.0f)

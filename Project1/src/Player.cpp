@@ -25,7 +25,7 @@ namespace Insignia
 			_player.setOrigin(_player.getScale().x / 2, _player.getScale().y / 2);
 
 			// Sets player1 position.
-			_player.setPosition(100, SCREEN_HEIGHT / 4);
+			_player.setPosition(100, _data->window.getSize().y / 4);
 
 			// Sets wandOffset to Player1's offset.
 			_wandOffset = PLAYER1_WAND_OFFSET;
@@ -48,7 +48,7 @@ namespace Insignia
 			_player.setOrigin(_player.getScale().x / 2, _player.getScale().y / 2);
 
 			// Sets player2 position.
-			_player.setPosition(SCREEN_WIDTH - 100, SCREEN_HEIGHT / 4);
+			_player.setPosition(_data->window.getSize().x - 100, _data->window.getSize().y / 2);
 
 			// Sets wandOffset to Player2's offset.
 			_wandOffset = PLAYER2_WAND_OFFSET;

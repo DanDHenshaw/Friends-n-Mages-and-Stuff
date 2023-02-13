@@ -50,12 +50,15 @@
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);..\..\..\SFML-2.5.1\include\;</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(LibraryPath);..\..\..\SFML-2.5.1\lib;</LibraryPath>
     <OutDir>$(SolutionDir)\bin\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(VC_ExecutablePath_x86);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,31 +99,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\sqlite\sqlite3.c" />
-    <ClCompile Include="AssetManager.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MenuState.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Killbeam.cpp" />
-    <ClCompile Include="SplashState.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\AssetManager.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameState.cpp" />
+    <ClCompile Include="src\InputManager.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MenuState.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Killbeam.cpp" />
+    <ClCompile Include="src\SplashState.cpp" />
+    <ClCompile Include="src\StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\sqlite\sqlite3.h" />
-    <ClInclude Include="AssetManager.h" />
-    <ClInclude Include="DEFINITIONS.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameState.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Killbeam.h" />
-    <ClInclude Include="MenuState.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="SplashState.h" />
-    <ClInclude Include="State.h" />
-    <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\AssetManager.h" />
+    <ClInclude Include="src\DEFINITIONS.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\GameState.h" />
+    <ClInclude Include="src\InputManager.h" />
+    <ClInclude Include="src\Killbeam.h" />
+    <ClInclude Include="src\MenuState.h" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\SplashState.h" />
+    <ClInclude Include="src\State.h" />
+    <ClInclude Include="src\StateMachine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
