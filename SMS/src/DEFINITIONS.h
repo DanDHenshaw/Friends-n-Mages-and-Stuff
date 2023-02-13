@@ -5,7 +5,7 @@
 
 #pragma region RENDER WINDOW
 // Game title.
-#define TITLE "Friends 'n Mages & Stuff"
+#define TITLE "Friends 'n Mages and Stuff"
 // Game width.
 #define SCREEN_WIDTH 1280
 // Game height
