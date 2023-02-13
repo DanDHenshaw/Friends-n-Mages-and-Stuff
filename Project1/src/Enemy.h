@@ -30,7 +30,7 @@ namespace Insignia
 		void Animations();
 		int _idlePos = 0;
 		int _walkingPos = 0;
-		Vector2f _wandOffset;
+		sf::Vector2f _wandOffset;
 
 		float _moveSpeed = MOVEMENT_SPEED;
 		bool _isWalking = false;

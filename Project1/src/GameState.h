@@ -29,7 +29,7 @@ namespace Insignia
 		// Vector of all gameobjects
 		vector<GameObject*> entities;
 
-		Vector2f wand1Pos;
-		Vector2f wand2Pos;
+		sf::Vector2f wand1Pos;
+		sf::Vector2f wand2Pos;
 	};
 }

@@ -22,7 +22,7 @@ namespace Insignia
 		GameDataRef _data;
 
 		// Sprite for killbeam
-		RectangleShape _killbeam;
+		sf::RectangleShape _killbeam;
 
 		// Clock for the Player.
 		sf::Clock _clock;

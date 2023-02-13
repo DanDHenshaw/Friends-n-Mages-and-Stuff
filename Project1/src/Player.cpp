@@ -32,7 +32,7 @@ namespace Insignia
 			// The offset by default is full size and unscaled so need to be multiplied by the player scale.
 			_wandOffset *= PLAYER_SIZE;
 			// Wand position is the player position + offset.
-			wandPos = Vector2f(_player.getPosition().x + _wandOffset.x, _player.getPosition().y + _wandOffset.y);
+			wandPos = sf::Vector2f(_player.getPosition().x + _wandOffset.x, _player.getPosition().y + _wandOffset.y);
 			break;
 		case GameObject::PLAYER2:
 			// Loads player2 texture.
@@ -55,7 +55,7 @@ namespace Insignia
 			// The offset by default is full size and unscaled so need to be multiplied by the player scale
 			_wandOffset *= PLAYER_SIZE;
 			// Wand position is the player position.x - offset.x & position.y + offset.y.
-			wandPos = Vector2f(_player.getPosition().x - _wandOffset.x, _player.getPosition().y + _wandOffset.y);
+			wandPos = sf::Vector2f(_player.getPosition().x - _wandOffset.x, _player.getPosition().y + _wandOffset.y);
 			break;
 		default:
 			break;
@@ -64,12 +64,12 @@ namespace Insignia
 
 	void Player::HandleInput()
 	{
-		Vector2f movement(0.0f, 0.0f);
+		sf::Vector2f movement(0.0f, 0.0f);
 
 		switch (_type)
 		{
 		case GameObject::PLAYER1:
-			movement = this->_data->input.Movement(Keyboard::Key::W, Keyboard::S, Keyboard::A, Keyboard::D, _moveSpeed, _isWalking);
+			movement = this->_data->input.Movement(sf::Keyboard::Key::W, sf::Keyboard::S, sf::Keyboard::A, sf::Keyboard::D, _moveSpeed, _isWalking);
 
 			// Checks if player1 is in the middle of the screen and stops them crossing.
 			if(_player.getPosition().x + _player.getGlobalBounds().width >= this->_data->window.getSize().x / 2)
@@ -87,7 +87,7 @@ namespace Insignia
 			}
 			break;
 		case GameObject::PLAYER2:
-			movement = this->_data->input.Movement(Keyboard::Key::Up, Keyboard::Down, Keyboard::Left, Keyboard::Right, _moveSpeed, _isWalking);
+			movement = this->_data->input.Movement(sf::Keyboard::Key::Up, sf::Keyboard::Down, sf::Keyboard::Left, sf::Keyboard::Right, _moveSpeed, _isWalking);
 
 			// Checks if player2 is in the middle of the screen and stops them crossing.
 			if (_player.getPosition().x - _player.getGlobalBounds().width <= this->_data->window.getSize().x / 2)
@@ -211,12 +211,12 @@ namespace Insignia
 		// Checks if player1
 		case GameObject::PLAYER1:
 			// Wand position is the player position + offset.
-			wandPos = Vector2f(_player.getPosition().x + _wandOffset.x, _player.getPosition().y + _wandOffset.y);
+			wandPos = sf::Vector2f(_player.getPosition().x + _wandOffset.x, _player.getPosition().y + _wandOffset.y);
 			break;
 		// Checks if player2
 		case GameObject::PLAYER2:
 			// Wand position is the player position.x - offset.x & position.y + offset.y.
-			wandPos = Vector2f(_player.getPosition().x - _wandOffset.x, _player.getPosition().y + _wandOffset.y);
+			wandPos = sf::Vector2f(_player.getPosition().x - _wandOffset.x, _player.getPosition().y + _wandOffset.y);
 			break;
 		default:
 			break;

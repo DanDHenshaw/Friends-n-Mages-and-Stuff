@@ -13,13 +13,13 @@ namespace Insignia
 	void Killbeam::Init()
 	{
 		this->_data->assets.LoadTexture("Killbeam", KILLBEAM_FILEPATH);
-		const Texture* tex = &this->_data->assets.GetTexture("Killbeam");
+		const sf::Texture* tex = &this->_data->assets.GetTexture("Killbeam");
 		_killbeam.setTexture(tex);
 		_killbeam.setTextureRect(KILLBEAM_ANIM[0]);
 
 		_killbeam.setOrigin(_killbeam.getOrigin().x, KILLBEAM_SIZE / 2);
 
-		_killbeam.setFillColor(Color::White);
+		_killbeam.setFillColor(sf::Color::White);
 	}
 
 	void Killbeam::HandleInput()
@@ -47,7 +47,7 @@ namespace Insignia
 		angle *= (180.0 / 3.141592653589793238463);
 		
 		_killbeam.setPosition(wandPos.x, wandPos.y);
-		_killbeam.setSize(Vector2f(h, KILLBEAM_SIZE));
+		_killbeam.setSize(sf::Vector2f(h, KILLBEAM_SIZE));
 
 		_killbeam.setOrigin(_killbeam.getOrigin().x, _killbeam.getSize().y / 2);
 
