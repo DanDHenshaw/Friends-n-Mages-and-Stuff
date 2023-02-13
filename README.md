@@ -11,8 +11,8 @@ How to setup?
 1. Download sqlite and SFML from https://tinyurl.com/project1-dependenices.
 2. Create a folder called `Project1`.
 3. Unzip the dependencies into the new `Project1` folder.
-4. Create a folder called `Project1` inside the `Project1` folder.
-5. Clone this repository into its own folder inside `Project1 > Project1`.
+4. Create a folder called `SMS` inside the `Project1` folder.
+5. Clone this repository into its own folder inside `Project1 > SMS`.
 6. Open in Visual Studio and run in 32bit mode.
 
 Author & Contributor List
