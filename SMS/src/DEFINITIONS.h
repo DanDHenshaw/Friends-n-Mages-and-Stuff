@@ -3,22 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-#include "..\..\profiler-v0.1.2-x86\include\Profiler.h"
+#include "Profiler.h"
 
-#pragma region PROFILER
-	#define PROFILER false
-
-	#if PROFILER
-		#define BEGINSESSION(name) Profiler::BeginSession(name)
-		#define INSTRMENTATIONTIMER() Profiler::InstrumentationTimer timer(__FUNCSIG__)
-		#define ENDSESSION() Profiler::EndSession();
-	#else
-		#define BEGINSESSION(name)
-		#define INSTRMENTATIONTIMER()
-		#define ENDSESSION()
-	#endif
-#pragma endregion
-
+#define PROFILER true
 
 #pragma region RENDER WINDOW
 // Game title.
@@ -132,4 +119,19 @@ const std::vector<sf::IntRect> KILLBEAM_ANIM
 
 #define KILLBEAM_ANIM_TIME 0.1f
 #pragma endregion
+#pragma endregion
+
+
+#pragma region PROFILER
+	#if PROFILER
+		#define BEGINSESSION(name) Profiler::BeginSession(name)
+		#define INSTRMENTATIONTIMER() Profiler::InstrumentationTimer timer(__FUNCSIG__)
+		#define ENDSESSION() Profiler::EndSession();
+
+		#define TITLE "Friends 'n Mages and Stuff (Profiler)"
+	#else
+		#define BEGINSESSION(name)
+		#define INSTRMENTATIONTIMER()
+		#define ENDSESSION()
+	#endif
 #pragma endregion
