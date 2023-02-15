@@ -5,6 +5,7 @@ namespace Insignia
 	Player::Player(GameDataRef data, ObjectType type)
 		: _data(data)
 	{
+		INSTRMENTATIONTIMER();
 		_type = type;
 	}
 

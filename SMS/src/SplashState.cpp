@@ -8,7 +8,7 @@ namespace Insignia
 {
 	SplashState::SplashState(GameDataRef data) : _data(data)
 	{
-
+		INSTRMENTATIONTIMER();
 	}
 
 	// Initializes the state.

@@ -5,7 +5,7 @@
 
 #include "Profiler.h"
 
-#define PROFILER true
+#define PROFILER false
 
 #pragma region RENDER WINDOW
 // Game title.

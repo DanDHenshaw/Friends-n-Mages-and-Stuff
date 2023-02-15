@@ -8,7 +8,7 @@ namespace Insignia
 {
 	MenuState::MenuState(GameDataRef data) : _data(data)
 	{
-
+		INSTRMENTATIONTIMER();
 	}
 
 	void MenuState::Init()

@@ -6,7 +6,7 @@ namespace Insignia
 {
 	GameState::GameState(GameDataRef data) : _data(data)
 	{
-
+		INSTRMENTATIONTIMER();
 	}
 
 	void GameState::Init()
