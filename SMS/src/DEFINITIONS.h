@@ -3,6 +3,23 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#include "..\..\profiler-v0.1.2-x86\include\Profiler.h"
+
+#pragma region PROFILER
+	#define PROFILER false
+
+	#if PROFILER
+		#define BEGINSESSION(name) Profiler::BeginSession(name)
+		#define INSTRMENTATIONTIMER() Profiler::InstrumentationTimer timer(__FUNCSIG__)
+		#define ENDSESSION() Profiler::EndSession();
+	#else
+		#define BEGINSESSION(name)
+		#define INSTRMENTATIONTIMER()
+		#define ENDSESSION()
+	#endif
+#pragma endregion
+
+
 #pragma region RENDER WINDOW
 // Game title.
 #define TITLE "Friends 'n Mages and Stuff"

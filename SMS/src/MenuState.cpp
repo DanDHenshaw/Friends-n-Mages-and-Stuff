@@ -13,6 +13,8 @@ namespace Insignia
 
 	void MenuState::Init()
 	{
+		INSTRMENTATIONTIMER();
+
 		/* UNCOMMENT WHEN ART IS ADDED
 			// Loads background texture.
 			this->_data->assets.LoadTexture("Menu State Background", MAIN_MENU_SCENE_BACKGROUND_FILEPATH);
@@ -40,6 +42,8 @@ namespace Insignia
 
 	void MenuState::HandleInput()
 	{
+		INSTRMENTATIONTIMER();
+
 		sf::Event event;
 
 		while (this->_data->window.pollEvent(event))
@@ -68,12 +72,16 @@ namespace Insignia
 
 	void MenuState::Update(float delta)
 	{
+		INSTRMENTATIONTIMER();
+
 		// Testing
 		this->_data->machine.AddState(StateRef(new GameState(_data)), true);
 	}
 
 	void MenuState::Draw(float delta)
 	{
+		INSTRMENTATIONTIMER();
+
 		this->_data->window.clear(sf::Color::Red);
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_playButton);

@@ -25,7 +25,6 @@ namespace Insignia
 
 	void Enemy::Update(float delta)
 	{
-
 	}
 
 	void Enemy::Draw(float delta)

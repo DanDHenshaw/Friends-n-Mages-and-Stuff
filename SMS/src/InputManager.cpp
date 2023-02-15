@@ -1,9 +1,13 @@
 #include "InputManager.h"
 
+#include "DEFINITIONS.h"
+
 namespace Insignia
 {
 	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window)
 	{
+		INSTRMENTATIONTIMER();
+
 		if (sf::Mouse::isButtonPressed(button))
 		{
 			sf::IntRect tempRect(object.getPosition().x, object.getPosition().y, object.getGlobalBounds().width, object.getGlobalBounds().height);
@@ -19,11 +23,15 @@ namespace Insignia
 
 	sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow& window)
 	{
+		INSTRMENTATIONTIMER();
+
 		return sf::Mouse::getPosition(window);
 	}
 
 	sf::Vector2f InputManager::Movement(sf::Keyboard::Key Up, sf::Keyboard::Key Down, sf::Keyboard::Key Left, sf::Keyboard::Key Right, float moveSpeed, bool& isWalking)
 	{
+		INSTRMENTATIONTIMER();
+
 		sf::Vector2f move(0.0f, 0.0f);
 
 		if (sf::Keyboard::isKeyPressed(Up))

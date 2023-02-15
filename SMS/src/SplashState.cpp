@@ -14,6 +14,8 @@ namespace Insignia
 	// Initializes the state.
 	void SplashState::Init()
 	{
+		INSTRMENTATIONTIMER();
+
 		// Loads background texture.
 		this->_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
 
@@ -24,6 +26,8 @@ namespace Insignia
 	// Handles events.
 	void SplashState::HandleInput()
 	{
+		INSTRMENTATIONTIMER();
+
 		sf::Event event;
 
 		while (this->_data->window.pollEvent(event))
@@ -38,6 +42,8 @@ namespace Insignia
 	// Updates splash screen after SPLASH_STATE_SHOW_TIME.
 	void SplashState::Update(float delta)
 	{
+		INSTRMENTATIONTIMER();
+
 		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
 			// Swap from SplashState to MenuState.
@@ -48,6 +54,8 @@ namespace Insignia
 	// Draws splash screen.
 	void SplashState::Draw(float delta)
 	{
+		INSTRMENTATIONTIMER();
+
 		this->_data->window.clear(sf::Color::Red);
 		this->_data->window.draw(this->_background);
 		this->_data->window.display();

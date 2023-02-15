@@ -24,7 +24,7 @@ namespace Insignia
 
 	void Killbeam::HandleInput()
 	{
-		
+
 	}
 
 	void Killbeam::Update(float delta)

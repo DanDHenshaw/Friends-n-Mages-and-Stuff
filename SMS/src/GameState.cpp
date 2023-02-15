@@ -11,6 +11,8 @@ namespace Insignia
 
 	void GameState::Init()
 	{
+		INSTRMENTATIONTIMER();
+
 		// // Creates and Adds the killbeam pointer to a vector of entities.
 		std::shared_ptr<Killbeam> killbeam(new Killbeam(_data, GameObject::KILLBEAM));
 		this->entities.push_back(killbeam);
@@ -32,6 +34,8 @@ namespace Insignia
 
 	void GameState::HandleInput()
 	{
+		INSTRMENTATIONTIMER();
+
 		sf::Event event;
 
 		while (this->_data->window.pollEvent(event))
@@ -45,6 +49,8 @@ namespace Insignia
 
 	void GameState::Update(float delta)
 	{
+		INSTRMENTATIONTIMER();
+
 		// Loops through all entities.
 		for (auto& entity : this->entities)
 		{
@@ -80,6 +86,8 @@ namespace Insignia
 
 	void GameState::Draw(float delta)
 	{
+		INSTRMENTATIONTIMER();
+
 		this->_data->window.clear(sf::Color::Red);
 
 		// Draws all entities.

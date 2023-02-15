@@ -1,9 +1,12 @@
 #include "AssetManager.h"
+#include "DEFINITIONS.h"
 
 namespace Insignia
 {
 	void AssetManager::LoadTexture(std::string name, std::string fileName)
 	{
+		INSTRMENTATIONTIMER();
+
 		sf::Texture tex;
 
 		if (tex.loadFromFile(fileName))
@@ -14,11 +17,15 @@ namespace Insignia
 
 	sf::Texture& AssetManager::GetTexture(std::string name)
 	{
+		INSTRMENTATIONTIMER();
+
 		return this->_textures.at(name);
 	}
 
 	void AssetManager::LoadFont(std::string name, std::string fileName)
 	{
+		INSTRMENTATIONTIMER();
+
 		sf::Font font;
 
 		if (font.loadFromFile(fileName))
@@ -29,6 +36,8 @@ namespace Insignia
 
 	sf::Font& AssetManager::GetFont(std::string name)
 	{
+		INSTRMENTATIONTIMER();
+
 		return this->_fonts.at(name);
 	}
 }

@@ -1,9 +1,13 @@
 #include "StateMachine.h"
 
+#include "DEFINITIONS.h"
+
 namespace Insignia
 {
 	void StateMachine::AddState(StateRef newState, bool isReplacing)
 	{
+		INSTRMENTATIONTIMER();
+
 		this->_isAdding = true;
 		this->_isReplacing = true;
 
@@ -12,11 +16,15 @@ namespace Insignia
 
 	void StateMachine::RemoveState()
 	{
+		INSTRMENTATIONTIMER();
+
 		this->_isRemoving = true;
 	}
 
 	void StateMachine::ProcessStateChanges()
 	{
+		INSTRMENTATIONTIMER();
+
 		if (this->_isRemoving && !this->_states.empty())
 		{
 			this->_states.pop();
@@ -51,6 +59,8 @@ namespace Insignia
 
 	StateRef& StateMachine::GetActiveState()
 	{
+		INSTRMENTATIONTIMER();
+
 		return this->_states.top();
 	}
 
