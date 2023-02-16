@@ -3,11 +3,11 @@
 
 int main()
 {
-    BEGINSESSION(TITLE);
+    BEGIN_SESSION(TITLE);
 
     Insignia::Game(SCREEN_WIDTH, SCREEN_HEIGHT, TITLE);
 
-    ENDSESSION();
+    END_SESSION();
 
     return EXIT_SUCCESS;
 }

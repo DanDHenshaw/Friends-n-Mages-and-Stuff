@@ -130,8 +130,8 @@ const std::vector<sf::IntRect> KILLBEAM_ANIM
 
 		#define TITLE "Friends 'n Mages and Stuff (Profiler)"
 	#else
-		#define BEGINSESSION(name)
+		#define BEGIN_SESSION(name)
 		#define INSTRMENTATIONTIMER()
-		#define ENDSESSION()
+		#define END_SESSION()
 	#endif
 #pragma endregion
