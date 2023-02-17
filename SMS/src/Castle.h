@@ -6,10 +6,10 @@
 namespace Insignia
 {
 	// Inherits the State class from 'GameObject.h'
-	class Enemy : public GameObject
+	class Castle : public GameObject
 	{
 	public:
-		Enemy(GameDataRef data, ObjectType type);
+		Castle(GameDataRef data, ObjectType type);
 
 		void Init() override;
 
@@ -21,15 +21,7 @@ namespace Insignia
 		// Reference to GameData.
 		GameDataRef _data;
 
-		// Sprite for enemy
-		sf::Sprite _enemy;
-
-		// Clock for the Enemy.
-		sf::Clock _clock;
-
-		void Animations();
-		int _walkingPos = 0;
-
-		float _moveSpeed = MOVEMENT_SPEED;
+		// Sprite for castle
+		sf::Sprite _castle;
 	};
 }

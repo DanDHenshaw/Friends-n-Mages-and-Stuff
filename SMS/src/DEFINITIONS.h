@@ -121,7 +121,20 @@ const std::vector<sf::IntRect> KILLBEAM_ANIM
 #pragma endregion
 
 #pragma region ENEMY
+// Mage 1 sprite filepath
+#define ENEMY_FILEPATH "res/game/enemy/enemy.png"
 
+#define ENEMY_SIZE 0.5f
+
+#define START_SPAWN_CLOCK 5
+#pragma endregion
+
+#pragma region CASTLE
+// Castle texture location
+#define CASTLE_FILEPATH "res/game/castle/castle.png"
+
+// Size of castle
+#define CASTLE_SIZE 0.5f
 #pragma endregion
 #pragma endregion
 

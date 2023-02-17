@@ -72,6 +72,8 @@ namespace Insignia
 
 		// Sets the animation frame.
 		_killbeam.setTextureRect(KILLBEAM_ANIM[_animPos]);
+
+		killbeamCollision = _killbeam;
 	}
 
 	void Killbeam::Draw(float delta)

@@ -7,6 +7,8 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Killbeam.h"
+#include "Castle.h"
+#include "Enemy.h"
 
 namespace Insignia
 {
@@ -28,6 +30,10 @@ namespace Insignia
 
 		// Vector of all gameobjects
 		vector<std::shared_ptr<GameObject>> entities;
+
+		// Clock for the Enemy spawn.
+		sf::Clock _spawnClock;
+		float _spawnClockTime = START_SPAWN_CLOCK;
 
 		sf::Vector2f wand1Pos;
 		sf::Vector2f wand2Pos;

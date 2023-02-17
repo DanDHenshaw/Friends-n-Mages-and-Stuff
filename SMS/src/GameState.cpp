@@ -13,7 +13,10 @@ namespace Insignia
 	{
 		INSTRMENTATIONTIMER();
 
-		// // Creates and Adds the killbeam pointer to a vector of entities.
+		std::shared_ptr<Castle> castle(new Castle(_data, GameObject::CASTLE));
+		this->entities.push_back(castle);
+
+		// Creates and Adds the killbeam pointer to a vector of entities.
 		std::shared_ptr<Killbeam> killbeam(new Killbeam(_data, GameObject::KILLBEAM));
 		this->entities.push_back(killbeam);
 
@@ -51,6 +54,17 @@ namespace Insignia
 	{
 		INSTRMENTATIONTIMER();
 
+		if (this->_spawnClock.getElapsedTime().asSeconds() > this->_spawnClockTime)
+		{
+			std::shared_ptr<Enemy> enemy(new Enemy(_data, GameObject::ENEMY));
+			enemy->Init();
+			this->entities.push_back(enemy);
+
+			_spawnClockTime -= 0.1f;
+			_spawnClock.restart();
+		}
+
+		int pos = 0;
 		// Loops through all entities.
 		for (auto& entity : this->entities)
 		{
@@ -78,9 +92,24 @@ namespace Insignia
 				// Sets extraWandPos to the wand2Pos.
 				entity->extraWandPos = wand2Pos;
 				break;
+			case GameObject::CASTLE:
+				break;
+			case GameObject::ENEMY:
+				if(entity->isDead)
+				{
+					entities.erase(entities.begin() + pos);
+				}
+
+				if(entity->castleAttacked)
+				{
+					std::cout << "Castle Attacked";
+				}
+				break;
 			default:
 				break;
 			}
+
+			pos++;
 		}
 	}
 

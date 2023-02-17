@@ -8,11 +8,14 @@ namespace Insignia
 	{
 	public:
 		// Type
-		enum ObjectType { PLAYER1, PLAYER2, KILLBEAM, ENEMY };
+		enum ObjectType { PLAYER1, PLAYER2, KILLBEAM, ENEMY, CASTLE };
 		ObjectType _type;
 
 		sf::Vector2f wandPos;
 		sf::Vector2f extraWandPos;
+
+		bool isDead = false;
+		bool castleAttacked = false;
 
 		/*
 		Initialises the state.
