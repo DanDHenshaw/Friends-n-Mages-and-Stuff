@@ -15,29 +15,36 @@ namespace Insignia
 	{
 		INSTRMENTATIONTIMER();
 
-		/* UNCOMMENT WHEN ART IS ADDED
-			// Loads background texture.
-			this->_data->assets.LoadTexture("Menu State Background", MAIN_MENU_SCENE_BACKGROUND_FILEPATH);
-			// Loads play button texture.
-			this->_data->assets.LoadTexture("Menu State Play Button", MAIN_MENU_SCENE_PLAY_BUTTON_FILEPATH);
-			// Loads leaderboard button texture.
-			this->_data->assets.LoadTexture("Menu State Leaderboard Button", MAIN_MENU_SCENE_LEADERBOARD_BUTTON_FILEPATH);
-			// Loads exit button texture.
-			this->_data->assets.LoadTexture("Menu State Exit Button", MAIN_MENU_SCENE_EXIT_BUTTON_FILEPATH);
-			// Loads title texture.
-			this->_data->assets.LoadTexture("Menu State Title", MAIN_MENU_SCENE_TITLE_FILEPATH);
+		// // Loads background texture.
+		// this->_data->assets.LoadTexture("Menu State Background", MAIN_MENU_SCENE_BACKGROUND_FILEPATH);
+		// Loads play button texture.
+		this->_data->assets.LoadTexture("Menu State Play Button", MAIN_MENU_SCENE_PLAY_BUTTON_FILEPATH);
+		// Loads leaderboard button texture.
+		this->_data->assets.LoadTexture("Menu State Leaderboard Button", MAIN_MENU_SCENE_LEADERBOARD_BUTTON_FILEPATH);
+		// Loads exit button texture.
+		this->_data->assets.LoadTexture("Menu State Exit Button", MAIN_MENU_SCENE_EXIT_BUTTON_FILEPATH);
+		// Loads title texture.
+		this->_data->assets.LoadTexture("Menu State Title", MAIN_MENU_SCENE_TITLE_FILEPATH);
 
-			// Sets background texture.
-			_background.setTexture(this->_data->assets.GetTexture("Menu State Background"));
-			// Sets play button texture.
-			_playButton.setTexture(this->_data->assets.GetTexture("Menu State Play Button"));
-			// Sets leaderboard button texture.
-			_leaderboardButton.setTexture(this->_data->assets.GetTexture("Menu State Leaderboard Button"));
-			// Sets exit button texture.
-			_exitButton.setTexture(this->_data->assets.GetTexture("Menu State Exit Button"));
-			// Sets title texture.
-			_title.setTexture(this->_data->assets.GetTexture("Menu State Title"));
-		*/
+		// // Sets background texture.
+		// this->_background.setTexture(this->_data->assets.GetTexture("Menu State Background"));
+		// Sets play button texture.
+		this->_playButton.setTexture(this->_data->assets.GetTexture("Menu State Play Button"));
+		// Sets leaderboard button texture.
+		this->_leaderboardButton.setTexture(this->_data->assets.GetTexture("Menu State Leaderboard Button"));
+		// Sets exit button texture.
+		this->_exitButton.setTexture(this->_data->assets.GetTexture("Menu State Exit Button"));
+		// Sets title texture.
+		this->_title.setTexture(this->_data->assets.GetTexture("Menu State Title"));
+
+		// Sets title position.
+		this->_title.setPosition((this->_data->window.getSize().x / 2) - (this->_title.getLocalBounds().width / 2), this->_title.getPosition().y);
+		// Sets play button position.
+		this->_playButton.setPosition((this->_data->window.getSize().x / 2) - (this->_playButton.getLocalBounds().width / 2), this->_title.getGlobalBounds().height + this->_title.getPosition().y + 25);
+		// Sets leaderboard button position.
+		this->_leaderboardButton.setPosition((this->_data->window.getSize().x / 2) - (this->_leaderboardButton.getLocalBounds().width / 2), this->_playButton.getGlobalBounds().height + this->_playButton.getPosition().y + 25);
+		// Sets exit button position.
+		this->_exitButton.setPosition((this->_data->window.getSize().x / 2) - (this->_exitButton.getLocalBounds().width / 2), this->_leaderboardButton.getGlobalBounds().height + this->_leaderboardButton.getPosition().y + 25);
 	}
 
 	void MenuState::HandleInput()
@@ -72,10 +79,7 @@ namespace Insignia
 
 	void MenuState::Update(float delta)
 	{
-		INSTRMENTATIONTIMER();
-
-		// Testing
-		this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+		
 	}
 
 	void MenuState::Draw(float delta)

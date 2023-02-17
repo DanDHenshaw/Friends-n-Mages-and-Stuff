@@ -8,6 +8,12 @@ namespace Insignia
 		INSTRMENTATIONTIMER();
 
 		_data->window.create(sf::VideoMode(width, height), title, sf::Style::Close | sf::Style::Titlebar);
+
+		// Sets window icon
+		sf::Image icon;
+		icon.loadFromFile(GAMEICON_FILEPATH);
+		_data->window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+
 		_data->machine.AddState(StateRef(new SplashState(this->_data)));
 
 		this->Run();

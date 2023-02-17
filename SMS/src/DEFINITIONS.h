@@ -3,8 +3,6 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-#include "Profiler.h"
-
 #define PROFILER false
 
 #pragma region RENDER WINDOW
@@ -14,6 +12,8 @@
 #define SCREEN_WIDTH 1280
 // Game height
 #define SCREEN_HEIGHT 720
+// Game icon filepath
+#define GAMEICON_FILEPATH "res/menu/title.png"
 #pragma endregion
 
 #pragma region SPLASH SCREEN
@@ -31,7 +31,7 @@
 // Menu screen leaderboard button filepath.
 #define MAIN_MENU_SCENE_LEADERBOARD_BUTTON_FILEPATH "res/menu/leaderboardButton.png"
 // Menu screen exit button filepath.
-#define MAIN_MENU_SCENE_EXIT_BUTTON_FILEPATH "res/menu/exitButton.png"
+#define MAIN_MENU_SCENE_EXIT_BUTTON_FILEPATH "res/menu/quitButton.png"
 // Menu screen title filepath.
 #define MAIN_MENU_SCENE_TITLE_FILEPATH "res/menu/title.png"
 #pragma endregion
@@ -119,11 +119,16 @@ const std::vector<sf::IntRect> KILLBEAM_ANIM
 
 #define KILLBEAM_ANIM_TIME 0.1f
 #pragma endregion
-#pragma endregion
 
+#pragma region ENEMY
+
+#pragma endregion
+#pragma endregion
 
 #pragma region PROFILER
 	#if PROFILER
+		#include "Profiler.h"
+
 		#define BEGINSESSION(name) Profiler::BeginSession(name)
 		#define INSTRMENTATIONTIMER() Profiler::InstrumentationTimer timer(__FUNCSIG__)
 		#define ENDSESSION() Profiler::EndSession();
