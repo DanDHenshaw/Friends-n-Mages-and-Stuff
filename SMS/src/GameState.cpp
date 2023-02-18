@@ -54,6 +54,15 @@ namespace Insignia
 	{
 		INSTRMENTATIONTIMER();
 
+		if(firstEnemy)
+		{
+			std::shared_ptr<Enemy> enemy(new Enemy(_data, GameObject::ENEMY));
+			enemy->Init();
+			this->entities.push_back(enemy);
+
+			firstEnemy = false;
+		}
+		
 		if (this->_spawnClock.getElapsedTime().asSeconds() > this->_spawnClockTime)
 		{
 			std::shared_ptr<Enemy> enemy(new Enemy(_data, GameObject::ENEMY));
@@ -64,7 +73,6 @@ namespace Insignia
 			_spawnClock.restart();
 		}
 
-		int pos = 0;
 		// Loops through all entities.
 		for (auto& entity : this->entities)
 		{
@@ -91,16 +99,25 @@ namespace Insignia
 				entity->wandPos = wand1Pos;
 				// Sets extraWandPos to the wand2Pos.
 				entity->extraWandPos = wand2Pos;
+
+				killbeamShape = entity->killbeamShape;
 				break;
 			case GameObject::CASTLE:
+				castleShape = entity->castleShape;
 				break;
 			case GameObject::ENEMY:
+				entity->killbeamShape = killbeamShape;
+				entity->castleShape = castleShape;
+
 				if(entity->isDead)
 				{
-					entities.erase(entities.begin() + pos);
+					entity->Init();
+					entity->isDead = false;
+
+					std::cout << "Dead";
 				}
 
-				if(entity->castleAttacked)
+				if(entity->castleAttacked && !entity->isDead)
 				{
 					std::cout << "Castle Attacked";
 				}
@@ -108,8 +125,6 @@ namespace Insignia
 			default:
 				break;
 			}
-
-			pos++;
 		}
 	}
 

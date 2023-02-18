@@ -22,7 +22,7 @@ namespace Insignia
 		GameDataRef _data;
 
 		// Sprite for enemy
-		sf::Sprite _enemy;
+		sf::RectangleShape _enemy;
 
 		// Clock for the Enemy.
 		sf::Clock _clock;

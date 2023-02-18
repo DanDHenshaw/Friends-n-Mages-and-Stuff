@@ -14,6 +14,9 @@ namespace Insignia
 		sf::Vector2f wandPos;
 		sf::Vector2f extraWandPos;
 
+		sf::RectangleShape killbeamShape;
+		sf::RectangleShape castleShape;
+
 		bool isDead = false;
 		bool castleAttacked = false;
 

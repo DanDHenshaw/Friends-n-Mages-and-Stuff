@@ -22,6 +22,6 @@ namespace Insignia
 		GameDataRef _data;
 
 		// Sprite for castle
-		sf::Sprite _castle;
+		sf::RectangleShape _castle;
 	};
 }

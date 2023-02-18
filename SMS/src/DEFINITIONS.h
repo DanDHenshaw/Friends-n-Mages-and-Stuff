@@ -5,6 +5,8 @@
 
 #define PROFILER false
 
+#define PI 3.141592653589793238463
+
 #pragma region RENDER WINDOW
 // Game title.
 #define TITLE "Friends 'n Mages and Stuff"
@@ -124,9 +126,9 @@ const std::vector<sf::IntRect> KILLBEAM_ANIM
 // Mage 1 sprite filepath
 #define ENEMY_FILEPATH "res/game/enemy/enemy.png"
 
-#define ENEMY_SIZE 0.5f
+#define ENEMY_SIZE sf::Vector2f(215 / 2, 268 / 2)
 
-#define START_SPAWN_CLOCK 5
+#define START_SPAWN_CLOCK 10.0f
 #pragma endregion
 
 #pragma region CASTLE
@@ -134,7 +136,7 @@ const std::vector<sf::IntRect> KILLBEAM_ANIM
 #define CASTLE_FILEPATH "res/game/castle/castle.png"
 
 // Size of castle
-#define CASTLE_SIZE 0.5f
+#define CASTLE_SIZE sf::Vector2f(215 / 2, 268 / 2)
 #pragma endregion
 #pragma endregion
 

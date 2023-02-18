@@ -45,7 +45,7 @@ namespace Insignia
 		float angle = y / h;
 		angle = asin(angle);
 			// Converts rad to deg
-		angle *= (180.0 / 3.141592653589793238463);
+		angle *= (180.0 / PI);
 		
 		_killbeam.setPosition(wandPos.x, wandPos.y);
 		_killbeam.setSize(sf::Vector2f(h, KILLBEAM_SIZE));
@@ -73,7 +73,7 @@ namespace Insignia
 		// Sets the animation frame.
 		_killbeam.setTextureRect(KILLBEAM_ANIM[_animPos]);
 
-		killbeamCollision = _killbeam;
+		killbeamShape = _killbeam;
 	}
 
 	void Killbeam::Draw(float delta)

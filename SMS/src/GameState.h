@@ -34,8 +34,12 @@ namespace Insignia
 		// Clock for the Enemy spawn.
 		sf::Clock _spawnClock;
 		float _spawnClockTime = START_SPAWN_CLOCK;
+		bool firstEnemy = true;
 
 		sf::Vector2f wand1Pos;
 		sf::Vector2f wand2Pos;
+
+		sf::RectangleShape killbeamShape;
+		sf::RectangleShape castleShape;
 	};
 }

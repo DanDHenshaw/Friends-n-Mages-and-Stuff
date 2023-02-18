@@ -15,9 +15,10 @@ namespace Insignia
 		this->_data->assets.LoadTexture("Castle", CASTLE_FILEPATH);
 
 		// Sets castle texture.
-		_castle.setTexture(this->_data->assets.GetTexture("Castle"));
+		const sf::Texture* tex = &this->_data->assets.GetTexture("Castle");
+		_castle.setTexture(tex);
 
-		_castle.setScale(CASTLE_SIZE, CASTLE_SIZE);
+		_castle.setSize(CASTLE_SIZE);
 
 		// Sets castle origin.
 		_castle.setOrigin(_castle.getLocalBounds().width / 2, _castle.getLocalBounds().height / 2);
@@ -33,7 +34,7 @@ namespace Insignia
 
 	void Castle::Update(float delta)
 	{
-
+		castleShape = _castle;
 	}
 
 	void Castle::Draw(float delta)
