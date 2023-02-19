@@ -7,6 +7,8 @@
 
 #define PI 3.141592653589793238463
 
+#define FONT_FILEPATH "fonts/RiotGothic.ttf"
+
 #pragma region RENDER WINDOW
 // Game title.
 #define TITLE "Friends 'n Mages and Stuff"
@@ -49,8 +51,13 @@
 #define PAUSE_SCENE_EXIT_BUTTON_FILEPATH "res/pause/quitButton.png"
 #pragma endregion
 
-
 #pragma region GAME
+#define SCORE_BACKGROUND_FILEPATH "res/game/score.png"
+#define SCORE_BACKGROUND_SIZE sf::Vector2f(494 / 2, 82 / 2)
+
+#define SCORE_TEXT_COLOR sf::Color(117, 93, 69)
+#define SCORE_TEXT_SIZE 36
+
 #pragma region PLAYERS
 // Mage 1 sprite filepath
 #define PLAYER1_FILEPATH "res/game/players/Mage1.png"

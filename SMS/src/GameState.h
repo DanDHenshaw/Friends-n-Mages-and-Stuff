@@ -41,5 +41,10 @@ namespace Insignia
 
 		sf::RectangleShape killbeamShape;
 		sf::RectangleShape castleShape;
+
+		int _score = 0;
+		sf::RectangleShape _scoreBackground;
+		sf::Text _scoreText;
+		sf::Clock _clock;
 	};
 }

@@ -14,6 +14,8 @@ namespace Insignia
 		icon.loadFromFile(GAMEICON_FILEPATH);
 		_data->window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
+		_data->assets.LoadFont("FONT", FONT_FILEPATH);
+
 		_data->machine.AddState(StateRef(new SplashState(this->_data)));
 
 		this->Run();

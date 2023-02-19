@@ -1,6 +1,7 @@
 #include "GameState.h"
 #include <sstream>
 #include <iostream>
+#include <chrono>
 
 #include "PauseState.h"
 
@@ -35,6 +36,21 @@ namespace Insignia
 		{
 			entity->Init();
 		}
+
+		this->_data->assets.LoadTexture("SCORE BACKGROUND IMAGE", SCORE_BACKGROUND_FILEPATH);
+		const sf::Texture* tex = &this->_data->assets.GetTexture("SCORE BACKGROUND IMAGE");
+		this->_scoreBackground.setTexture(tex);
+		this->_scoreBackground.setSize(SCORE_BACKGROUND_SIZE);
+		this->_scoreBackground.setPosition(10, 10);
+
+		_scoreText.setFont(this->_data->assets.GetFont("FONT"));
+		_scoreText.setCharacterSize(SCORE_TEXT_SIZE);
+		_scoreText.setColor(SCORE_TEXT_COLOR);
+
+		std::stringstream scoreText;
+		scoreText << _score << " Seconds";
+		_scoreText.setString(scoreText.str());
+		_scoreText.setPosition(20, 7.5f);
 	}
 
 	void GameState::HandleInput()
@@ -80,6 +96,17 @@ namespace Insignia
 			_spawnClock.restart();
 		}
 
+		if(this->_clock.getElapsedTime().asSeconds() > 1)
+		{
+			this->_score++;
+
+			std::stringstream scoreText;
+			scoreText << this->_score << " Seconds";
+			_scoreText.setString(scoreText.str());
+
+			this->_clock.restart();
+		}
+
 		// Loops through all entities.
 		for (auto& entity : this->entities)
 		{
@@ -121,6 +148,7 @@ namespace Insignia
 					entity->Init();
 					entity->isDead = false;
 
+					_score++;
 					std::cout << "Dead";
 				}
 
@@ -140,6 +168,9 @@ namespace Insignia
 		INSTRMENTATIONTIMER();
 
 		this->_data->window.clear(sf::Color::Red);
+
+		this->_data->window.draw(_scoreBackground);
+		this->_data->window.draw(_scoreText);
 
 		// Draws all entities.
 		for (auto& entity : this->entities)
