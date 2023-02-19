@@ -9,7 +9,7 @@ namespace Insignia
 		INSTRMENTATIONTIMER();
 
 		this->_isAdding = true;
-		this->_isReplacing = true;
+		this->_isReplacing = isReplacing;
 
 		this->_newState = std::move(newState);
 	}

@@ -106,6 +106,7 @@ xcopy /isvy "$(ProjectDir)src\data\fonts" "$(OutDir)fonts"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\sqlite\sqlite3.c" />
+    <ClCompile Include="src\PauseState.cpp" />
     <ClCompile Include="src\SAT.cpp" />
     <ClCompile Include="src\Castle.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
@@ -122,6 +123,7 @@ xcopy /isvy "$(ProjectDir)src\data\fonts" "$(OutDir)fonts"
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\sqlite\sqlite3.h" />
+    <ClInclude Include="src\PauseState.h" />
     <ClInclude Include="src\SAT.h" />
     <ClInclude Include="src\Castle.h" />
     <ClInclude Include="src\Enemy.h" />

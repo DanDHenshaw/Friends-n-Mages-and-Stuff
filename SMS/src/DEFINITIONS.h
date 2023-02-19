@@ -38,6 +38,18 @@
 #define MAIN_MENU_SCENE_TITLE_FILEPATH "res/menu/title.png"
 #pragma endregion
 
+#pragma region PAUSE
+// Pause screen background filepath.
+#define PAUSE_SCENE_BACKGROUND_FILEPATH "res/menu/background.jpg"
+// Pause screen resume button filepath.
+#define PAUSE_SCENE_RESUME_BUTTON_FILEPATH "res/pause/resumeButton.png"
+// Pause screen menu button filepath.
+#define PAUSE_SCENE_MENU_BUTTON_FILEPATH "res/pause/menuButton.png"
+// Pause screen exit button filepath.
+#define PAUSE_SCENE_EXIT_BUTTON_FILEPATH "res/pause/quitButton.png"
+#pragma endregion
+
+
 #pragma region GAME
 #pragma region PLAYERS
 // Mage 1 sprite filepath

@@ -79,6 +79,12 @@
     <Filter Include="Source Files\GameObjects\Castle">
       <UniqueIdentifier>{ad1d8dae-4af4-4cb7-a98e-f49bb40ee728}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\States\PauseScreen">
+      <UniqueIdentifier>{e7e94836-6c48-4289-9415-c55e5d054486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States\PauseScreen">
+      <UniqueIdentifier>{2665fa6a-7659-4695-b264-626c84626065}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -122,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="src\SAT.cpp">
       <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PauseState.cpp">
+      <Filter>Source Files\States\PauseScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="src\SAT.h">
       <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PauseState.h">
+      <Filter>Header Files\States\PauseScreen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

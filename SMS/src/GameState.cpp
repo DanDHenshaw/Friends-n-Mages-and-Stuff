@@ -2,6 +2,8 @@
 #include <sstream>
 #include <iostream>
 
+#include "PauseState.h"
+
 namespace Insignia
 {
 	GameState::GameState(GameDataRef data) : _data(data)
@@ -46,6 +48,11 @@ namespace Insignia
 			if (sf::Event::Closed == event.type)
 			{
 				this->_data->window.close();
+			}
+
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			{
+				this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
 			}
 		}
 	}

@@ -72,8 +72,6 @@ namespace Insignia
 
 		// Sets enemy position.
 		_enemy.setPosition(calculateSpawn(SCREEN_WIDTH, SCREEN_HEIGHT, _enemy.getLocalBounds()));
-
-		std::cout << "x:" << _enemy.getPosition().x << " y:" << _enemy.getPosition().y << std::endl;
 	}
 
 	void Enemy::HandleInput()
