@@ -29,6 +29,7 @@ namespace Insignia
 
 		void Animations();
 		int _walkingPos = 0;
+		bool isFlipped = false;
 
 		float _moveSpeed = MOVEMENT_SPEED;
 	};

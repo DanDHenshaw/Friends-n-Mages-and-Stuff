@@ -83,7 +83,32 @@ namespace Insignia
 
 	void Enemy::Animations()
 	{
+		// Checks if the Anim frame time has passed.
+		if (this->_clock.getElapsedTime().asSeconds() > ENEMY_WALK_ANIM_TIME)
+		{
+			// Checks if the animation is on the last frame.
+			if (this->_walkingPos >= ENEMY_WALK.size() - 1)
+			{
+				// Sets the frame to 0.
+				this->_walkingPos = 0;
+			}
 
+			// Increases the frame.
+			this->_walkingPos++;
+
+			// Restarts the clock.
+			this->_clock.restart();
+		}
+
+		_enemy.setTextureRect(ENEMY_WALK[this->_walkingPos]);
+
+		if(isFlipped)
+		{
+			_enemy.setScale(-1, 1);
+		} else
+		{
+			_enemy.setScale(1, 1);
+		}
 	}
 
 	sf::Vector2f Movement(sf::RectangleShape castleShape, sf::RectangleShape enemy, float delta)
@@ -98,7 +123,18 @@ namespace Insignia
 
 	void Enemy::Update(float delta)
 	{
-		_enemy.move(Movement(castleShape, _enemy, delta));
+		sf::Vector2f move = Movement(castleShape, _enemy, delta);
+
+		if(move.x > 0)
+		{
+			isFlipped = false;
+		} else
+		{
+			isFlipped = true;
+		}
+
+		_enemy.move(move);
+		Animations();
 
 		SAT sat;
 		if (sat.collisionSAT(_enemy, killbeamShape))

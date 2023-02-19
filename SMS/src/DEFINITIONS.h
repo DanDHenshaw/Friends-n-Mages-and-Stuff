@@ -126,7 +126,19 @@ const std::vector<sf::IntRect> KILLBEAM_ANIM
 // Mage 1 sprite filepath
 #define ENEMY_FILEPATH "res/game/enemy/enemy.png"
 
-#define ENEMY_SIZE sf::Vector2f(215 / 2, 268 / 2)
+#define ENEMY_SIZE sf::Vector2f(266 / 2, 228 / 2)
+
+// Enemy Walk Anim
+const std::vector<sf::IntRect> ENEMY_WALK
+{
+	{10, 0, 266, 228},
+	{286, 0, 266, 228},
+	{561, 0, 266, 228},
+	{837, 0, 266, 228},
+	{1113, 0, 266, 228}
+};
+
+#define ENEMY_WALK_ANIM_TIME 0.1f
 
 #define START_SPAWN_CLOCK 10.0f
 #pragma endregion
