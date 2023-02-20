@@ -106,6 +106,8 @@ xcopy /isvy "$(ProjectDir)src\data\fonts" "$(OutDir)fonts"
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\sqlite\sqlite3.c" />
+    <ClCompile Include="src\LeaderboardState.cpp" />
+    <ClCompile Include="src\LeaderboardManager.cpp" />
     <ClCompile Include="src\PauseState.cpp" />
     <ClCompile Include="src\SAT.cpp" />
     <ClCompile Include="src\Castle.cpp" />
@@ -120,9 +122,12 @@ xcopy /isvy "$(ProjectDir)src\data\fonts" "$(OutDir)fonts"
     <ClCompile Include="src\Killbeam.cpp" />
     <ClCompile Include="src\SplashState.cpp" />
     <ClCompile Include="src\StateMachine.cpp" />
+    <ClCompile Include="src\TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\sqlite\sqlite3.h" />
+    <ClInclude Include="src\LeaderboardState.h" />
+    <ClInclude Include="src\LeaderboardManager.h" />
     <ClInclude Include="src\PauseState.h" />
     <ClInclude Include="src\SAT.h" />
     <ClInclude Include="src\Castle.h" />
@@ -139,6 +144,7 @@ xcopy /isvy "$(ProjectDir)src\data\fonts" "$(OutDir)fonts"
     <ClInclude Include="src\SplashState.h" />
     <ClInclude Include="src\State.h" />
     <ClInclude Include="src\StateMachine.h" />
+    <ClInclude Include="src\TextBox.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,6 +10,8 @@
 #include "Castle.h"
 #include "Enemy.h"
 
+#include "TextBox.h"
+
 namespace Insignia
 {
 	// Inherits the State class from 'State.h'
@@ -27,6 +29,8 @@ namespace Insignia
 	private:
 		// Reference to GameData.
 		GameDataRef _data;
+
+		sf::Sprite _background;
 
 		// Vector of all gameobjects
 		vector<std::shared_ptr<GameObject>> entities;
@@ -46,5 +50,11 @@ namespace Insignia
 		sf::RectangleShape _scoreBackground;
 		sf::Text _scoreText;
 		sf::Clock _clock;
+
+		bool castleAttacked = false;
+
+		std::shared_ptr<Textbox> textbox;
+
+		bool nameStored = false;
 	};
 }

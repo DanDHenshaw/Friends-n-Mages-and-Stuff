@@ -7,6 +7,7 @@
 #include "StateMachine.h"
 #include "AssetManager.h"
 #include "InputManager.h"
+#include "LeaderboardManager.h"
 #include "DEFINITIONS.h"
 
 using namespace std;
@@ -26,6 +27,8 @@ namespace Insignia
 		sf::RenderWindow window;
 		AssetManager assets;
 		InputManager input;
+		LeaderboardManager leaderboard;
+		std::string name = "";
 	};
 
 	typedef std::shared_ptr<GameData> GameDataRef;

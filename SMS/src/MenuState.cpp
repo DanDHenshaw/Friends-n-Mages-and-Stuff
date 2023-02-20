@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "GameState.h"
+#include "LeaderboardState.h"
 
 namespace Insignia
 {
@@ -15,8 +16,8 @@ namespace Insignia
 	{
 		INSTRMENTATIONTIMER();
 
-		// // Loads background texture.
-		// this->_data->assets.LoadTexture("Menu State Background", MAIN_MENU_SCENE_BACKGROUND_FILEPATH);
+		// Loads background texture.
+		this->_data->assets.LoadTexture("Menu State Background", MAIN_MENU_SCENE_BACKGROUND_FILEPATH);
 		// Loads play button texture.
 		this->_data->assets.LoadTexture("Menu State Play Button", MAIN_MENU_SCENE_PLAY_BUTTON_FILEPATH);
 		// Loads leaderboard button texture.
@@ -26,8 +27,8 @@ namespace Insignia
 		// Loads title texture.
 		this->_data->assets.LoadTexture("Menu State Title", MAIN_MENU_SCENE_TITLE_FILEPATH);
 
-		// // Sets background texture.
-		// this->_background.setTexture(this->_data->assets.GetTexture("Menu State Background"));
+		// Sets background texture.
+		this->_background.setTexture(this->_data->assets.GetTexture("Menu State Background"));
 		// Sets play button texture.
 		this->_playButton.setTexture(this->_data->assets.GetTexture("Menu State Play Button"));
 		// Sets leaderboard button texture.
@@ -67,7 +68,7 @@ namespace Insignia
 
 			if (this->_data->input.IsSpriteClicked(this->_leaderboardButton, sf::Mouse::Left, this->_data->window))
 			{
-				//this->_data->machine.AddState(StateRef(new LeaderboardState(_data)), true);
+				this->_data->machine.AddState(StateRef(new LeaderboardState(_data)), true);
 			}
 
 			if (this->_data->input.IsSpriteClicked(this->_exitButton, sf::Mouse::Left, this->_data->window))

@@ -85,6 +85,18 @@
     <Filter Include="Source Files\States\PauseScreen">
       <UniqueIdentifier>{2665fa6a-7659-4695-b264-626c84626065}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Other">
+      <UniqueIdentifier>{3d939389-eda5-487c-88ab-c3dca3224025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Other">
+      <UniqueIdentifier>{7c71dccc-6e72-44c5-a072-2548cf5197f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States\LeaderboardScreen">
+      <UniqueIdentifier>{b51db8f4-ed03-4c7b-a188-96ed720d1171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\States\LeaderboardScreen">
+      <UniqueIdentifier>{9df6e073-1f69-485f-87fa-be2e890ff89e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -131,6 +143,15 @@
     </ClCompile>
     <ClCompile Include="src\PauseState.cpp">
       <Filter>Source Files\States\PauseScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LeaderboardManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextBox.cpp">
+      <Filter>Source Files\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LeaderboardState.cpp">
+      <Filter>Source Files\States\LeaderboardScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +205,15 @@
     </ClInclude>
     <ClInclude Include="src\PauseState.h">
       <Filter>Header Files\States\PauseScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LeaderboardManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextBox.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LeaderboardState.h">
+      <Filter>Header Files\States\LeaderboardScreen</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -16,8 +16,8 @@ namespace Insignia
 	{
 		INSTRMENTATIONTIMER();
 
-		// // Loads background texture.
-		// this->_data->assets.LoadTexture("Pause State Background", PAUSE_SCENE_BACKGROUND_FILEPATH);
+		// Loads background texture.
+		this->_data->assets.LoadTexture("Pause State Background", PAUSE_SCENE_BACKGROUND_FILEPATH);
 		// Loads play button texture.
 		this->_data->assets.LoadTexture("Pause State Resume Button", PAUSE_SCENE_RESUME_BUTTON_FILEPATH);
 		// Loads menu button texture.
@@ -25,8 +25,8 @@ namespace Insignia
 		// Loads exit button texture.
 		this->_data->assets.LoadTexture("Pause State Exit Button", PAUSE_SCENE_EXIT_BUTTON_FILEPATH);
 
-		// // Sets background texture.
-		// this->_background.setTexture(this->_data->assets.GetTexture("Pause State Background"));
+		// Sets background texture.
+		this->_background.setTexture(this->_data->assets.GetTexture("Pause State Background"));
 		// Sets play button texture.
 		this->_resumeButton.setTexture(this->_data->assets.GetTexture("Pause State Resume Button"));
 		// Sets menu button texture.

@@ -8,6 +8,11 @@
 #define PI 3.141592653589793238463
 
 #define FONT_FILEPATH "fonts/RiotGothic.ttf"
+#define TEXT_COLOR sf::Color(117, 93, 69)
+
+#pragma region Leaderboard
+#define LEADERBOARD_NAME "highscores.db"
+#pragma endregion
 
 #pragma region RENDER WINDOW
 // Game title.
@@ -29,7 +34,7 @@
 
 #pragma region MENU SCREEN
 // Menu screen background filepath.
-#define MAIN_MENU_SCENE_BACKGROUND_FILEPATH "res/menu/background.jpg"
+#define MAIN_MENU_SCENE_BACKGROUND_FILEPATH "res/game/background.jpg"
 // Menu screen play button filepath.
 #define MAIN_MENU_SCENE_PLAY_BUTTON_FILEPATH "res/menu/playButton.png"
 // Menu screen leaderboard button filepath.
@@ -40,9 +45,24 @@
 #define MAIN_MENU_SCENE_TITLE_FILEPATH "res/menu/title.png"
 #pragma endregion
 
-#pragma region PAUSE
+#pragma region LEADERBOARD SCREEN
+#define LEADERBOARD_BACKGROUND_FILEPATH "res/game/background.jpg"
+
+#define LEADERBOARD_PANEL_FILEPATH "res/leaderboard/leaderboardPanel.png"
+#define LEADERBOARD_PANEL_SIZE sf::Vector2f(1147, 589)
+
+#define LEADERBOARD_ITEM_FILEPATH "res/leaderboard/leaderboardPosition.png"
+#define LEADERBOARD_ITEM_SIZE sf::Vector2f(1102, 46)
+
+#define LEADERBOARD_ITEM_TEXT_COLOR sf::Color(198, 164, 127)
+
+#define LEADERBOARD_MENU_BUTTON "res/pause/menuButton.png"
+#define LEADERBOARD_EXIT_BUTTON "res/pause/quitButton.png"
+#pragma endregion
+
+#pragma region PAUSE SCREEN
 // Pause screen background filepath.
-#define PAUSE_SCENE_BACKGROUND_FILEPATH "res/menu/background.jpg"
+#define PAUSE_SCENE_BACKGROUND_FILEPATH "res/game/background.jpg"
 // Pause screen resume button filepath.
 #define PAUSE_SCENE_RESUME_BUTTON_FILEPATH "res/pause/resumeButton.png"
 // Pause screen menu button filepath.
@@ -51,12 +71,16 @@
 #define PAUSE_SCENE_EXIT_BUTTON_FILEPATH "res/pause/quitButton.png"
 #pragma endregion
 
-#pragma region GAME
+#pragma region GAME SCREEN
+#define GAME_BACKGROUND_FILEPATH "res/game/background.jpg"
+
 #define SCORE_BACKGROUND_FILEPATH "res/game/score.png"
 #define SCORE_BACKGROUND_SIZE sf::Vector2f(494 / 2, 82 / 2)
 
-#define SCORE_TEXT_COLOR sf::Color(117, 93, 69)
 #define SCORE_TEXT_SIZE 36
+
+#define NAME_BACKGROUND "res/game/name.png"
+#define NAME_BACKGROUND_SIZE sf::Vector2f(1111, 174)
 
 #pragma region PLAYERS
 // Mage 1 sprite filepath

@@ -3,7 +3,10 @@
 #include <iostream>
 #include <chrono>
 
+#include "LeaderboardState.h"
 #include "PauseState.h"
+
+#include "TextBox.h"
 
 namespace Insignia
 {
@@ -15,6 +18,12 @@ namespace Insignia
 	void GameState::Init()
 	{
 		INSTRMENTATIONTIMER();
+
+		// Loads background texture.
+		this->_data->assets.LoadTexture("Game State Background", GAME_BACKGROUND_FILEPATH);
+
+		// Sets background texture.
+		this->_background.setTexture(this->_data->assets.GetTexture("Game State Background"));
 
 		std::shared_ptr<Castle> castle(new Castle(_data, GameObject::CASTLE));
 		this->entities.push_back(castle);
@@ -45,12 +54,15 @@ namespace Insignia
 
 		_scoreText.setFont(this->_data->assets.GetFont("FONT"));
 		_scoreText.setCharacterSize(SCORE_TEXT_SIZE);
-		_scoreText.setColor(SCORE_TEXT_COLOR);
+		_scoreText.setColor(TEXT_COLOR);
 
 		std::stringstream scoreText;
 		scoreText << _score << " Seconds";
 		_scoreText.setString(scoreText.str());
 		_scoreText.setPosition(20, 7.5f);
+
+		textbox = make_shared<Textbox>(this->_data);
+		textbox->Init();
 	}
 
 	void GameState::HandleInput()
@@ -66,9 +78,17 @@ namespace Insignia
 				this->_data->window.close();
 			}
 
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && !this->castleAttacked)
 			{
 				this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
+			}
+
+			if (sf::Event::TextEntered == event.type)
+			{
+				if(this->castleAttacked)
+				{
+					textbox->HandleInput(event.text.unicode);
+				}
 			}
 		}
 	}
@@ -77,88 +97,106 @@ namespace Insignia
 	{
 		INSTRMENTATIONTIMER();
 
-		if(firstEnemy)
+		if(!castleAttacked)
 		{
-			std::shared_ptr<Enemy> enemy(new Enemy(_data, GameObject::ENEMY));
-			enemy->Init();
-			this->entities.push_back(enemy);
-
-			firstEnemy = false;
-		}
-		
-		if (this->_spawnClock.getElapsedTime().asSeconds() > this->_spawnClockTime)
-		{
-			std::shared_ptr<Enemy> enemy(new Enemy(_data, GameObject::ENEMY));
-			enemy->Init();
-			this->entities.push_back(enemy);
-
-			_spawnClockTime -= 0.1f;
-			_spawnClock.restart();
-		}
-
-		if(this->_clock.getElapsedTime().asSeconds() > 1)
-		{
-			this->_score++;
-
-			std::stringstream scoreText;
-			scoreText << this->_score << " Seconds";
-			_scoreText.setString(scoreText.str());
-
-			this->_clock.restart();
-		}
-
-		// Loops through all entities.
-		for (auto& entity : this->entities)
-		{
-			// Handles all entity input.
-			entity->HandleInput();
-			// Handles all entity updates.
-			entity->Update(delta);
-
-			switch (entity->_type)
+			if (firstEnemy)
 			{
-			// Checks if player1.
-			case GameObject::PLAYER1:
-				// Sets wand1Pos to player1 wandPos (includes offset).
-				wand1Pos = entity->wandPos;
-				break;
-			// Checks if player2.
-			case GameObject::PLAYER2:
-				// Sets wand2Pos to player2 wandPos (includes offset).
-				wand2Pos = entity->wandPos;
-				break;
-			// Checks if Killbeam.
-			case GameObject::KILLBEAM:
-				// Sets wandPos to the wand1Pos.
-				entity->wandPos = wand1Pos;
-				// Sets extraWandPos to the wand2Pos.
-				entity->extraWandPos = wand2Pos;
+				std::shared_ptr<Enemy> enemy(new Enemy(_data, GameObject::ENEMY));
+				enemy->Init();
+				this->entities.push_back(enemy);
 
-				killbeamShape = entity->killbeamShape;
-				break;
-			case GameObject::CASTLE:
-				castleShape = entity->castleShape;
-				break;
-			case GameObject::ENEMY:
-				entity->killbeamShape = killbeamShape;
-				entity->castleShape = castleShape;
+				firstEnemy = false;
+			}
 
-				if(entity->isDead)
+			if (this->_spawnClock.getElapsedTime().asSeconds() > this->_spawnClockTime)
+			{
+				std::shared_ptr<Enemy> enemy(new Enemy(_data, GameObject::ENEMY));
+				enemy->Init();
+				this->entities.push_back(enemy);
+
+				_spawnClockTime -= 0.1f;
+				_spawnClock.restart();
+			}
+
+			// Every second add score
+			if (this->_clock.getElapsedTime().asSeconds() > 1)
+			{
+				this->_score++;
+
+				std::stringstream scoreText;
+				scoreText << this->_score << " Seconds";
+				_scoreText.setString(scoreText.str());
+
+				this->_clock.restart();
+			}
+
+			// Loops through all entities.
+			for (auto& entity : this->entities)
+			{
+				// Handles all entity input.
+				entity->HandleInput();
+				// Handles all entity updates.
+				entity->Update(delta);
+
+				switch (entity->_type)
 				{
-					entity->Init();
-					entity->isDead = false;
+					// Checks if player1.
+				case GameObject::PLAYER1:
+					// Sets wand1Pos to player1 wandPos (includes offset).
+					wand1Pos = entity->wandPos;
+					break;
+					// Checks if player2.
+				case GameObject::PLAYER2:
+					// Sets wand2Pos to player2 wandPos (includes offset).
+					wand2Pos = entity->wandPos;
+					break;
+					// Checks if Killbeam.
+				case GameObject::KILLBEAM:
+					// Sets wandPos to the wand1Pos.
+					entity->wandPos = wand1Pos;
+					// Sets extraWandPos to the wand2Pos.
+					entity->extraWandPos = wand2Pos;
 
-					_score++;
-					std::cout << "Dead";
-				}
+					killbeamShape = entity->killbeamShape;
+					break;
+				case GameObject::CASTLE:
+					castleShape = entity->castleShape;
+					break;
+				case GameObject::ENEMY:
+					entity->killbeamShape = killbeamShape;
+					entity->castleShape = castleShape;
 
-				if(entity->castleAttacked && !entity->isDead)
-				{
-					std::cout << "Castle Attacked";
+					if (entity->isDead)
+					{
+						entity->Init();
+						entity->isDead = false;
+
+						_score++;
+						std::cout << "Dead";
+					}
+
+					if (entity->castleAttacked && !entity->isDead)
+					{
+						std::cout << "Castle Attacked";
+						castleAttacked = true;
+						textbox->score = _score;
+					}
+					break;
+				default:
+					break;
 				}
-				break;
-			default:
-				break;
+			}
+		}
+		else
+		{
+			if(!this->_data->name.empty() && !nameStored)
+			{
+				nameStored = true;
+
+				this->_data->leaderboard.SaveScore(this->_data->name, _score);
+
+				// change to leaderboard
+				this->_data->machine.AddState(StateRef(new LeaderboardState(_data)), true);
 			}
 		}
 	}
@@ -169,13 +207,25 @@ namespace Insignia
 
 		this->_data->window.clear(sf::Color::Red);
 
-		this->_data->window.draw(_scoreBackground);
-		this->_data->window.draw(_scoreText);
+		this->_data->window.draw(_background);
 
-		// Draws all entities.
-		for (auto& entity : this->entities)
+		if(!castleAttacked)
 		{
-			entity->Draw(delta);
+			this->_data->window.draw(_scoreBackground);
+			this->_data->window.draw(_scoreText);
+
+			// Draws all entities.
+			for (auto& entity : this->entities)
+			{
+				entity->Draw(delta);
+			}
+		}
+		else
+		{
+			if(this->_data->name.empty())
+			{
+				this->textbox->Draw(delta);
+			}
 		}
 
 		this->_data->window.display();
