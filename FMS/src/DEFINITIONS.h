@@ -199,9 +199,9 @@ const std::vector<sf::IntRect> ENEMY_WALK
 	#if PROFILER
 		#include "Profiler.h"
 
-		#define BEGINSESSION(name) Profiler::BeginSession(name)
+		#define BEGIN_SESSION(name) Profiler::BeginSession(name)
 		#define INSTRMENTATIONTIMER() Profiler::InstrumentationTimer timer(__FUNCSIG__)
-		#define ENDSESSION() Profiler::EndSession();
+		#define END_SESSION() Profiler::EndSession();
 
 		#define TITLE "Friends 'n Mages and Stuff (Profiler)"
 	#else
