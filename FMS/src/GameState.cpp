@@ -171,7 +171,6 @@ namespace Insignia
 						entity->Init();
 						entity->isDead = false;
 
-						_score++;
 						std::cout << "Dead";
 					}
 
