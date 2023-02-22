@@ -1,9 +1,13 @@
-Project1
+Friends n' Mages and Stuff
 ==========
 Project can be downloaded from https://github.com/DanDHenshaw/Project1
 -----------------------------------------------------------------------
-What is `Project 1`?
+What is `Friends n' Mages and Stuff`?
 ----------------------------
+- Singleplayer or Multiplayer game running from one keyboard. Player 1 is controlled using WASD, Player 2 is controlled using Up, Down, Left, and Right.
+- Protect the castle from the enemies by killing them with your beam of magic.
+- Every second you survive your ranking on the leaderboard will increase...
+
 All Specification, Technical Design, Test Plan, GIT Commit Log, and Schedule is located here: https://tinyurl.com/project1-design-doc
 
 How to setup?
