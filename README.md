@@ -1,6 +1,6 @@
 Friends n' Mages and Stuff
 ==========
-Project can be downloaded from https://github.com/DanDHenshaw/Project1
+Project can be downloaded from https://github.com/DanDHenshaw/Friends-n-Mages-and-Stuff
 -----------------------------------------------------------------------
 What is `Friends n' Mages and Stuff`?
 ----------------------------
